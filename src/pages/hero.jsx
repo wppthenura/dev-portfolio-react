@@ -1,12 +1,20 @@
-import React from "react";
+import React from 'react';
+import './hero.css';
 
-function Hero() {
+const Hero = () => {
   return (
-    <section id="hero">
-      <h1>Hi, I’m Pulindu</h1>
-      <p>Welcome to my portfolio. Scroll down to see more.</p>
+    <section className="hero-container">
+      <div className="hero-3d">
+        {[...Array(9)].map((_, i) => (
+          <div key={i} className={`panel panel-${i + 1}`}></div>
+        ))}
+      </div>
+      <div className="hero-text">
+        <h1>SHOW THE FUTURE,</h1>
+        <h2>CREATE A VISION.</h2>
+      </div>
     </section>
   );
-}
+};
 
 export default Hero;
