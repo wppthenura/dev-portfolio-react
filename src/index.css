@@ -1,0 +1,67 @@
+/* index.css */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+  background: url('/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(4px); /* optional for frosted glass effect */
+  background-color: rgba(18, 18, 18, 0.7); /* semi-transparent overlay */
+  border-bottom: 1px solid #444;
+}
+
+
+.logo {
+  font-size: 1.5rem;
+}
+
+.hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background-color: #646cff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #535bf2;
+}
+
+.projects {
+  padding: 4rem 2rem;
+  text-align: center;
+}
