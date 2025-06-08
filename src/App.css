@@ -40,3 +40,28 @@
 .read-the-docs {
   color: #888;
 }
+
+/* App.css */
+.horizontal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  height: 100vh;
+  width: 100vw;
+  scroll-behavior: smooth;
+}
+
+.page {
+  scroll-snap-align: start;
+  flex: none;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+body {
+  margin: 0;
+  overflow: hidden; /* disable vertical scroll */
+}

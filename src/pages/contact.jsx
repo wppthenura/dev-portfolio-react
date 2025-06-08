@@ -3,9 +3,10 @@ import React from "react";
 function Contact() {
   return (
     <section id="contact">
-      <h1>About Me</h1>
-      <p>Brief description or story about yourself.</p>
-    </section>
+  <h2>Contact</h2>
+  <p>Let's get in touch!</p>
+  {/* Your form or info here */}
+</section>
   );
 }
 

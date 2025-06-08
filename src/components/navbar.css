@@ -6,14 +6,29 @@
   background-color: rgba(31, 31, 31, 0.9);
   padding: 1rem 2rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
 }
 
-.logo {
-  font-size: 1.5rem;
+.chat-button {
+  background-color: #646cff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
+
+.chat-button:hover {
+  background-color: #4a50e2;
+  transform: scale(1.05);
+}
+
 
 .navbar ul {
   list-style: none;
@@ -32,4 +47,11 @@
 
 .navbar ul li a:hover {
   color: #646cff;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

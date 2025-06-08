@@ -3,15 +3,15 @@ import './hero.css';
 
 const Hero = () => {
   return (
-    <section className="hero-container">
+    <section className="hero-container" id="hero">
       <div className="hero-3d">
-        {[...Array(9)].map((_, i) => (
+        {[...Array(11)].map((_, i) => (
           <div key={i} className={`panel panel-${i + 1}`}></div>
         ))}
       </div>
       <div className="hero-text">
-        <h1>SHOW THE FUTURE,</h1>
-        <h2>CREATE A VISION.</h2>
+        <h1>W P P Thenura</h1>
+        <h2>Full Stack Developer | UI/UX Engineer</h2>
       </div>
     </section>
   );

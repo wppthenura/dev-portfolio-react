@@ -1,0 +1,24 @@
+/* src/components/horizontalScroll.css */
+
+.horizontal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  width: 500vw; /* 5 sections × 100vw */
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+}
+
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.horizontal-scroll-container > section {
+  flex: 0 0 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
+}
