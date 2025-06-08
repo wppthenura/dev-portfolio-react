@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.1.2",
+    "@react-three/fiber": "^9.1.2",
     "firebase": "^11.9.0",
     "framer-motion": "^12.16.0",
     "react": "^19.1.0",

@@ -11,18 +11,6 @@ body {
   background: url('/background.jpg') no-repeat center center fixed;
   background-size: cover;
   scroll-behavior: smooth;
-  overflow-y: hidden;
-
-}
-
-.horizontal-wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 500vw; /* 5 sections × 100vw */
-  height: 100vh;
-  scroll-snap-type: x mandatory;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
 }
 
 .section {
@@ -42,9 +30,16 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(4px); /* optional for frosted glass effect */
-  background-color: rgba(18, 18, 18, 0.7); /* semi-transparent overlay */
+  backdrop-filter: blur(4px);
+  background-color: rgba(18, 18, 18, 0.7);
   border-bottom: 1px solid #444;
+  scroll-snap-align: start;
+}
+
+.vertical-scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 
