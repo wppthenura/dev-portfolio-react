@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
+import { OrbitControls, Preload, useGLTF, Text } from "@react-three/drei";
 
 import CanvasLoader from "../Loader";
 
@@ -22,9 +22,22 @@ const Computers = ({ isMobile }) => {
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        position={isMobile ? [0, -7, -2.2] : [-1.3, -3.5, 2.5]}
+        rotation={[-0.01, 0.5, -0.1]}
+
       />
+      {/* Floating Text Saying */}
+      <Text
+        position={[-4,-1,7.9]} // Adjust this relative t  o the model
+        fontSize={0.2}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+        maxWidth={6}
+        rotation={[1.53, Math.PI / 1.8, 0.03]} // Rotate to face the camera
+      >
+        I'm your creative companion 💡
+      </Text>
     </mesh>
   );
 };
@@ -58,20 +71,11 @@ const ComputersCanvas = () => {
       frameloop='demand'
       shadows
       dpr={[1, 2]}
-      camera={{ 
-       position: [1, 1, 50],  // Moves camera back (higher Z) and centers view
-       fov: 25,               // Smaller FOV = less distortion
-       near: 0.1,             // Prevents clipping of near objects
-       far: 1000              // Prevents clipping of far objects
-  }}
+      camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <OrbitControls
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-        />
+        {/* No OrbitControls = fully locked view */}
         <Computers isMobile={isMobile} />
       </Suspense>
 

@@ -51,8 +51,8 @@
 
 .hero-text {
   position: absolute;
-  left: 5vw;
-  top: 50%;
+  left: 1250px;
+  top: 570px;
   transform: translateY(-50%);
   z-index: 2;
   color: white;
@@ -68,17 +68,26 @@
 
 .hero-text h2 {
   font-size: 2rem;
-  color: #ccc;
+  color:aqua ;
   letter-spacing: 2px;
 }
 
 .computer-canvas-container {
-  position: absolute;
+  position: fixed;
   left: -20px;
-  bottom: 570px;
-  width: 500px;  /* Adjust width as needed */
-  height: 570px; /* Adjust height as needed */
+  bottom: 10px;
+  width: 2000px;  /* Adjust width as needed */
+  height: 1070px; /* Adjust height as needed */
   z-index: 1;    /* Ensure it stays above other elements */
 }
 
-
+.human-canvas-container {
+  position: fixed;
+  right: 780px; /* Adjusted from 700px to viewport units */
+  top: 100px;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 1500px;
+  z-index: 1;
+  pointer-events: none;
+}

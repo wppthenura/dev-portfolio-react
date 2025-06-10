@@ -3,8 +3,8 @@ import React, { useEffect, useState, Suspense } from 'react';
 import './hero.css';
 import { ComputersCanvas } from '../components/canvas';
 import { Canvas } from '@react-three/fiber';
-import { Environment } from '@react-three/drei';
-import Human from '../components/canvas/Human'; // make sure path is correct
+import { Environment, OrbitControls} from '@react-three/drei';
+import Human from '../components/canvas/Human';
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -28,19 +28,14 @@ const Hero = () => {
             <Human isMobile={isMobile} />
             <Environment preset="city" />
           </Suspense>
+          <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
         </Canvas>
       </div>
-
-      <div className="hero-3d">
-        {[...Array(11)].map((_, i) => (
-          <div key={i} className={`panel panel-${i + 1}`}></div>
-        ))}
-      </div>
-
       <div className="hero-text">
-        <h1>W P P Thenura</h1>
+        <h1>Pulindu Thenura</h1>
         <h2>Full Stack Developer | UI/UX Engineer</h2>
       </div>
+
     </section>
   );
 };

@@ -3,7 +3,7 @@
   width: 100%;
   top: 0;
   background-color: transparent;
-  padding: 1rem 2rem;
+  padding: 1.75rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -14,7 +14,7 @@
 .brand-and-links {
   display: flex;
   align-items: center;
-  gap: 10rem; /* space between brand and links */
+  gap: 25rem; /* space between brand and links */
   margin-left: auto;
   margin-right: auto;
 }
@@ -54,7 +54,7 @@
 .nav-links ul {
   list-style: none;
   display: flex;
-  gap: 1.5rem;
+  gap: 3.5rem;
   margin: 0;
   padding: 0;
 }
