@@ -1,15 +1,36 @@
-/* navbar.css */
 .navbar {
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: rgba(31, 31, 31, 0.9);
+  background-color: transparent;
   padding: 1rem 2rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   z-index: 1000;
+}
+
+.brand-and-links {
+  display: flex;
+  align-items: center;
+  gap: 10rem; /* space between brand and links */
+  margin-left: auto;
+  margin-right: auto;
+}
+.brand {
+  color: gray;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+/* Add this wrapper for centering */
+.nav-links {
+  flex: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .chat-button {
@@ -30,7 +51,7 @@
 }
 
 
-.navbar ul {
+.nav-links ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
@@ -38,19 +59,20 @@
   padding: 0;
 }
 
-.navbar ul li a {
+.nav-links ul li a {
   color: white;
   text-decoration: none;
-  font-weight: bold;
   transition: color 0.3s ease;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.5rem;
 }
 
-.navbar ul li a:hover {
+.nav-links ul li a:hover {
   color: #646cff;
 }
 
 @media (max-width: 768px) {
-  .navbar {
+  .nav-links {
     flex-direction: column;
     align-items: flex-start;
   }

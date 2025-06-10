@@ -71,3 +71,14 @@
   color: #ccc;
   letter-spacing: 2px;
 }
+
+.computer-canvas-container {
+  position: absolute;
+  left: -20px;
+  bottom: 570px;
+  width: 500px;  /* Adjust width as needed */
+  height: 570px; /* Adjust height as needed */
+  z-index: 1;    /* Ensure it stays above other elements */
+}
+
+
