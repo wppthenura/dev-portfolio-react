@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at center, #1c1c1c, #0d0d0d);
+  background: radial-gradient(circle at center, #969696, #ffffff);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -68,7 +68,7 @@
 
 .hero-text h2 {
   font-size: 2rem;
-  color:aqua ;
+  color:rgb(0, 0, 0) ;
   letter-spacing: 2px;
 }
 
@@ -90,4 +90,18 @@
   height: 1500px;
   z-index: 1;
   pointer-events: none;
+}
+
+.brand-and-links {
+  display: flex;
+  align-items: center;
+  gap: 25rem; /* space between brand and links */
+  margin-left: auto;
+  margin-right: auto;
+}
+.brand {
+  color: gray;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-family: 'Quicksand', sans-serif;
 }

@@ -18,8 +18,8 @@ const Hero = () => {
 
   return (
     <section className="hero-container" id="hero">
-      <div className="computer-canvas-container">
-        <ComputersCanvas />
+      <div className="brand-and-links">
+      <a className="brand">W P P Thenura  |  More than Coding</a>
       </div>
 
       <div className="human-canvas-container">
