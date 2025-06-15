@@ -1,9 +1,6 @@
-// hero.jsx
-import React, { useEffect, useState, Suspense } from 'react';
+import React, { useEffect, useState } from 'react';
 import './about.css';
-import { ComputersCanvas } from '../components/canvas';
-import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls} from '@react-three/drei';
+import LineGrid from '../components/LineGrid'; // ✅ Only grid here
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -17,11 +14,10 @@ const About = () => {
 
   return (
     <section className="about-container" id="about">
-      <div className="computer-canvas-container">
-        <ComputersCanvas />
+      {/* ✅ LineGrid moved here */}
+      <div className="grid-overlay">
+        <LineGrid isMobile={isMobile} />
       </div>
-
-
     </section>
   );
 };

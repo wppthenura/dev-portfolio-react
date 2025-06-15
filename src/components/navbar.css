@@ -15,15 +15,11 @@
 
 /* Container for all nav items (desktop) */
 .nav-links {
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  border-radius: 30px;
   padding: 0.5rem 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Nav items list */
@@ -46,13 +42,13 @@
   text-decoration: none;
   font-family: 'Quicksand', sans-serif;
   font-size: 1.1rem;
-  border-radius: 25px;
+  border-radius: 14px;
   background: radial-gradient(circle at 30% 30%, rgba(7, 78, 185, 0.747), rgba(0, 150, 255, 0.25) 70%);
   box-shadow:
-    inset -8px -8px 14px rgba(255, 255, 255, 0.5),
+    inset -8px -8px 14px rgba(6, 21, 88, 0.562),
     inset 8px 8px 14px rgba(0, 0, 0, 0.05),
-    0 4px 15px rgba(0, 150, 255, 0.2),
-    0 8px 25px rgba(0, 0, 0, 0.1);
+    0 4px 15px rgba(75, 75, 75, 0.2),
+    0 8px 25px rgba(0, 0, 0, 0.466);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   white-space: nowrap; /* Prevent text wrap */

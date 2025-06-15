@@ -1,0 +1,40 @@
+.snake-container {
+  width: 220px;
+  height: 220px;
+  background-color: #111;
+  border-radius: 12px;
+  padding: 10px;
+  margin: 20px;
+  box-shadow: 0 0 15px #0f0;
+  color: white;
+  font-family: monospace;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 2px;
+}
+
+.cell {
+  width: 18px;
+  height: 18px;
+  background-color: #222;
+  border-radius: 4px;
+}
+
+.cell.snake {
+  background-color: #0f0;
+}
+
+.cell.food {
+  background-color: #f00;
+}
+
+.game-over {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #f33;
+}
