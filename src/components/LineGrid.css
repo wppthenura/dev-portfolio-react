@@ -10,8 +10,29 @@
 
 .line {
   position: absolute;
-  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+  transform-style: preserve-3d;
 }
+
+.line-label {
+  transform: translateZ(10px);
+  font-size: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 0 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.vertical-label {
+  writing-mode: vertical-rl;
+  transform: translateZ(10px) rotateY(180deg);
+}
+
 
 .horizontal {
   height: 2px;

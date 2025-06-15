@@ -58,13 +58,3 @@
   z-index: 1;    /* Ensure it stays above other elements */
 }
 
-.human-canvas-container {
-  position: fixed;
-  right: 780px; /* Adjusted from 700px to viewport units */
-  top: 100px;
-  transform: translateY(-50%);
-  width: 400px;
-  height: 1500px;
-  z-index: 1;
-  pointer-events: none;
-}
