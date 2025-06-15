@@ -5,6 +5,8 @@ import { ComputersCanvas } from '../components/canvas';
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls} from '@react-three/drei';
 import Human from '../components/canvas/Human';
+import LineGrid from '../components/LineGrid'; // Adjust path if needed
+
 
 const Hero = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -31,6 +33,10 @@ const Hero = () => {
           <OrbitControls enableZoom={false} enableRotate={false} enablePan={false} />
         </Canvas>
       </div>
+      <div className="grid-overlay">
+       <LineGrid />
+      </div>
+
       <div className="hero-text">
         <h1>Pulindu Thenura</h1>
         <h2>Full Stack Developer | UI/UX Engineer</h2>

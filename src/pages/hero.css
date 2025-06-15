@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: radial-gradient(circle at center, #969696, #ffffff);
+  background: radial-gradient(circle at center, #ffffff, #ffffff);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -93,15 +93,33 @@
 }
 
 .brand-and-links {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 25rem; /* space between brand and links */
-  margin-left: auto;
-  margin-right: auto;
+  gap: 1rem;
+  z-index: 5; /* ensure it's above the grid */
 }
+
 .brand {
-  color: gray;
-  text-decoration: none;
+  color: #1f1f1f;
   font-size: 1.5rem;
   font-family: 'Quicksand', sans-serif;
+  background: rgba(255, 255, 255, 0.6); /* semi-transparent for visibility */
+  padding: 0.4rem 1rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px); /* optional soft blur behind text */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* hero.css or appropriate stylesheet */
+.grid-overlay {
+  position: absolute;
+  top: 40%;
+  left: 7%;
+  transform: translateY(-50%);
+  z-index: 3;
 }

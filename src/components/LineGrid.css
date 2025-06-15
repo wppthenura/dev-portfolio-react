@@ -1,0 +1,51 @@
+/* LineGrid.css */
+
+.line-grid {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: auto;
+  z-index: 2;
+}
+
+.line {
+  position: absolute;
+  background-color: black;
+}
+
+.horizontal {
+  height: 2px;
+}
+
+.vertical {
+  width: 2px;
+}
+
+.line-3d {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4));
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3), inset 0 0 2px rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Horizontal movement */
+@keyframes slide-horizontal {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(100vw); }
+  100% { transform: translateX(0); }
+}
+
+.move-horizontal {
+  animation: slide-horizontal 1.2s ease-in-out;
+}
+
+/* Vertical movement */
+@keyframes slide-vertical {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(100vh); }
+  100% { transform: translateY(0); }
+}
+
+.move-vertical {
+  animation: slide-vertical 1.2s ease-in-out;
+}
