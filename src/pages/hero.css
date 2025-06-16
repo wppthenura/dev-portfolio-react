@@ -70,22 +70,11 @@
   margin: 1rem 0; /* same vertical margin */
 }
 
-.role-wrapper {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  margin-top: 1rem; /* changed from 0.5rem to 1rem for equal spacing */
-}
-
-/* Keep this as-is */
-.typewriter-text {
-  transition: opacity 0.5s ease-in-out;
+.role {
   font-size: 3rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: rgb(255, 53, 18);
-  text-align: left;
-  font-family: "Georgia", serif;
+  font: family 'Poppins', sans-serif;
+  color: #000;
+  margin: 1rem 0; /* consistent spacing */
 }
 
 /* ✨ Optional: subtle hover tilt for interactivity */

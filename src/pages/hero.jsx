@@ -11,29 +11,7 @@ const Hero = () => {
     setIsMobile(mediaQuery.matches);
     mediaQuery.addEventListener("change", (e) => setIsMobile(e.matches));
     return () => mediaQuery.removeEventListener("change", () => {});
-  }, []);
-
-  useEffect(() => {
-    const roles = [
-      "Full Stack Developer",
-      "UI/UX Engineer",
-      "Product Designer"
-    ];
-
-    let index = 0;
-    const cycleRoles = () => {
-      if (!roleRef.current) return;
-      roleRef.current.style.opacity = 0;
-      setTimeout(() => {
-        roleRef.current.innerText = roles[index].toUpperCase();
-        roleRef.current.style.opacity = 1;
-        index = (index + 1) % roles.length;
-      }, 400);
-    };
-
-    const interval = setInterval(cycleRoles, 5000);
-    return () => clearInterval(interval);
-  }, []);
+  }, []);  
 
   return (
     <section className="hero-container" id="hero">
@@ -46,9 +24,7 @@ const Hero = () => {
           <h2 className="intro-line">Hi I am,</h2>
           <h1 className="name-line">Pulindu Thenura</h1>
           <h2 className="intro-line">and I am a</h2>
-          <div className="role-wrapper">
-            <h2 className="typewriter-text" ref={roleRef}></h2>
-          </div>
+            <h2 className="role">Software Engineer</h2>
         </div>
 
         <div className="computer-canvas-container">

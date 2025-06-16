@@ -45,10 +45,10 @@
   border-radius: 14px;
   background: radial-gradient(circle at 30% 30%, rgba(7, 78, 185, 0.747), rgba(0, 150, 255, 0.25) 70%);
   box-shadow:
-    inset -8px -8px 14px rgba(6, 21, 88, 0.562),
-    inset 8px 8px 14px rgba(0, 0, 0, 0.05),
+    inset -8px -8px 14px rgba(80, 163, 189, 0.562),
+    inset 8px 8px 14px rgba(117, 205, 211, 0.05),
     0 4px 15px rgba(75, 75, 75, 0.2),
-    0 8px 25px rgba(0, 0, 0, 0.466);
+    0 8px 25px rgba(0, 0, 0, 0.164);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   white-space: nowrap; /* Prevent text wrap */
