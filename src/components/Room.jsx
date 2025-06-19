@@ -1,4 +1,6 @@
 import { Suspense, useEffect, useState } from "react";
+import * as THREE from "three";
+import { useLoader } from "@react-three/fiber";
 import ComputerModel from "./canvas/ComputerModel";
 import CanvasLoader from "./Loader";
 import { Edges } from "@react-three/drei";
@@ -16,12 +18,21 @@ const Room = () => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
+  // 🔶 Load wood texture for floor
+  const woodTexture = useLoader(THREE.TextureLoader, "/textures/wood.jpg");
+  woodTexture.wrapS = woodTexture.wrapT = THREE.RepeatWrapping;
+  woodTexture.repeat.set(1, 1); // adjust stripes density
+
   return (
     <>
-      {/* Floor */}
+      {/* Floor with striped orange wood texture */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[20, 25]} />
-        <meshStandardMaterial color="#dfdfdf" />
+        <meshStandardMaterial
+          map={woodTexture}
+          roughness={0.6}
+          metalness={0.2}
+        />
       </mesh>
 
       {/* Left Wall */}
@@ -39,7 +50,7 @@ const Room = () => {
       </mesh>
 
       {/* Corner Shadow (fake beam for 90° corner) */}
-      <mesh position={[0.5, 0, -4.6]} rotation={[0, 0, 0]}>
+      <mesh position={[0.5, 1, -5.5]} rotation={[0, 0, 0]}>
         <boxGeometry args={[0.1, 20, 0.1]} />
         <meshStandardMaterial color="grey" opacity={0.17} transparent />
       </mesh>
@@ -48,7 +59,7 @@ const Room = () => {
       <Suspense fallback={<CanvasLoader />}>
         <ComputerModel isMobile={isMobile} />
         <Chair isMobile={isMobile} />
-        <Palm isMobile={isMobile} /> 
+        <Palm isMobile={isMobile} />
       </Suspense>
     </>
   );
