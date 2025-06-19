@@ -2,6 +2,7 @@
 import { Suspense, useEffect, useState } from "react";
 import ComputerModel from "./canvas/ComputerModel"; // ✅ NEW
 import CanvasLoader from "./Loader";
+import { Edges } from "@react-three/drei";
 
 const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -23,16 +24,18 @@ const Room = () => {
       </mesh>
 
       {/* Left Wall */}
-      <mesh rotation={[0, Math.PI / 4, 0]} position={[-2, 3, -3]}>
-        <planeGeometry args={[20, 20]} />
-        <meshStandardMaterial color="#000000"/>
-      </mesh>
+<mesh rotation={[0, Math.PI / 4, 0]} position={[-2, 3, -3]}>
+  <planeGeometry args={[20, 20]} />
+  <meshStandardMaterial color="#F1D6B3" />
+  <Edges scale={1.01} threshold={15} color="black" />
+</mesh>
 
-      {/* Right Wall */}
-      <mesh rotation={[0, -Math.PI / 4, 0]} position={[4, 2.5, -2]}>
-        <planeGeometry args={[20, 20]} />
-        <meshStandardMaterial color="#eeeeee" />
-      </mesh>
+{/* Right Wall */}
+<mesh rotation={[0, -Math.PI / 4, 0]} position={[4, 2.5, -2]}>
+  <planeGeometry args={[20, 20]} />
+  <meshStandardMaterial color="#F1D6B3" />
+  <Edges scale={1.01} threshold={15} color="black" />
+</mesh>
 
       {/* Computer Model Inside Room */}
       <Suspense fallback={<CanvasLoader />}>

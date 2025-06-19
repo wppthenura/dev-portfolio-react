@@ -20,8 +20,8 @@ const ComputerModel = ({ isMobile }) => {
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.5 : 0.45}
-        position={isMobile ? [0, -7, -2.2] : [-2, 3, -2]}
-        rotation={[0.05, 5.5, 0]}
+        position={isMobile ? [0, -7, -2.2] : [-3.7, 3, 1.55]}
+        rotation={[0.05, 5.57, -0.005]}
       />
 
       {/* Floating Text */}
