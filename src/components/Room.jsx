@@ -1,9 +1,9 @@
-// src/components/Room.jsx
 import { Suspense, useEffect, useState } from "react";
 import ComputerModel from "./canvas/ComputerModel";
 import CanvasLoader from "./Loader";
 import { Edges } from "@react-three/drei";
 import Chair from "./canvas/Chair";
+import Palm from "./canvas/PalmPlant";
 
 const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -38,10 +38,17 @@ const Room = () => {
         <Edges scale={1.01} threshold={15} color="black" />
       </mesh>
 
+      {/* Corner Shadow (fake beam for 90° corner) */}
+      <mesh position={[0.5, 0, -4.6]} rotation={[0, 0, 0]}>
+        <boxGeometry args={[0.1, 20, 0.1]} />
+        <meshStandardMaterial color="grey" opacity={0.17} transparent />
+      </mesh>
+
       {/* Models */}
       <Suspense fallback={<CanvasLoader />}>
         <ComputerModel isMobile={isMobile} />
         <Chair isMobile={isMobile} />
+        <Palm isMobile={isMobile} /> 
       </Suspense>
     </>
   );

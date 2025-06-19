@@ -1,0 +1,514 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        0.15325304865837097,
+        0.15325304865837097,
+        0.2972574830055237
+      ],
+      "min": [
+        -0.15325304865837097,
+        -0.15325304865837097,
+        0.002322743646800518
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 47712,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        1.0,
+        1.0,
+        0.9999971389770508
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        0.9990648627281189,
+        0.9990649819374084,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -0.9990648627281189,
+        -1.0,
+        -1.0,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        0.9966630935668945,
+        0.9999988079071045
+      ],
+      "min": [
+        1.0539015420363285e-06,
+        1.560484975016152e-06
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 31808,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        0.9966630935668945,
+        0.9999988079071045
+      ],
+      "min": [
+        1.0539015420363285e-06,
+        1.560484975016152e-06
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 63616,
+      "componentType": 5126,
+      "count": 3976,
+      "max": [
+        0.9966630935668945,
+        0.9999988079071045
+      ],
+      "min": [
+        1.0539015420363285e-06,
+        1.560484975016152e-06
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 22560,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 95424,
+      "componentType": 5126,
+      "count": 41279,
+      "max": [
+        0.7802814245223999,
+        0.7053820490837097,
+        1.5312166213989258
+      ],
+      "min": [
+        -0.8207952976226807,
+        -0.7493061423301697,
+        0.2323378473520279
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 590772,
+      "componentType": 5126,
+      "count": 41279,
+      "max": [
+        0.9998841285705566,
+        0.9999327063560486,
+        0.9999991059303284
+      ],
+      "min": [
+        -0.9999836683273315,
+        -0.9999169707298279,
+        -0.9992923140525818
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 63616,
+      "componentType": 5126,
+      "count": 41279,
+      "max": [
+        0.9999754428863525,
+        0.9999959468841553,
+        0.9997235536575317,
+        1.0
+      ],
+      "min": [
+        -0.9999741315841675,
+        -0.9999690055847168,
+        -0.9994440674781799,
+        1.0
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 95424,
+      "componentType": 5126,
+      "count": 41279,
+      "max": [
+        0.9976727962493896,
+        1.0056519508361816
+      ],
+      "min": [
+        0.015192000195384026,
+        0.003619000082835555
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 425656,
+      "componentType": 5126,
+      "count": 41279,
+      "max": [
+        1.0,
+        0.9996291399002075
+      ],
+      "min": [
+        1.0,
+        0.8503709435462952
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 90240,
+      "componentType": 5125,
+      "count": 163008,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "AllQuad (https://sketchfab.com/AllQuad)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/free-livistona-chinensis-fan-palm-f59bab2a81244b869e1ca5aefd4ad94a",
+      "title": "[FREE]  Livistona Chinensis - Fan Palm"
+    },
+    "generator": "Sketchfab-15.32.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 742272,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 755888,
+      "byteOffset": 742272,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 1086120,
+      "byteOffset": 1498160,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 724080,
+      "byteOffset": 2584280,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 3308360,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsUsed": [
+    "KHR_materials_specular"
+  ],
+  "images": [
+    {
+      "uri": "textures/PLANTER_BOTTOM_CROSS_Mat_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/PLANTER_BOTTOM_CROSS_Mat_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/PLANTER_BOTTOM_CROSS_Mat_normal.jpeg"
+    },
+    {
+      "uri": "textures/PLANTER_BOTTOM_CROSS_Mat_specularf0.png"
+    },
+    {
+      "uri": "textures/LIVISTONA_CHINENSIS_Mat_baseColor.png"
+    },
+    {
+      "uri": "textures/LIVISTONA_CHINENSIS_Mat_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/LIVISTONA_CHINENSIS_Mat_normal.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_specular": {
+          "specularColorFactor": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "specularFactor": 1.0,
+          "specularTexture": {
+            "index": 3
+          }
+        }
+      },
+      "name": "PLANTER_BOTTOM_CROSS_Mat",
+      "normalTexture": {
+        "index": 2
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 0
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 1
+        }
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "LIVISTONA_CHINENSIS_Mat",
+      "normalTexture": {
+        "index": 6
+      },
+      "pbrMetallicRoughness": {
+        "baseColorTexture": {
+          "index": 4
+        },
+        "metallicFactor": 0.0,
+        "metallicRoughnessTexture": {
+          "index": 5
+        }
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "PLANTER_TERRA_BASE_PLANTER_BOTTOM_CROSS_Mat_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3,
+            "TEXCOORD_1": 4,
+            "TEXCOORD_2": 5
+          },
+          "indices": 6,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "LIVISTONA_CHINENSIS_LIVISTONA_CHINENSIS_Mat_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 8,
+            "POSITION": 7,
+            "TANGENT": 9,
+            "TEXCOORD_0": 10,
+            "TEXCOORD_1": 11
+          },
+          "indices": 12,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.009999999776482582,
+        0.0,
+        0.0,
+        -0.009999999776482582,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "c5305d3721ae4ac48cdea7bba30fc53e.fbx"
+    },
+    {
+      "children": [
+        3
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4,
+        5
+      ],
+      "matrix": [
+        100.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.629206793918314e-05,
+        -99.99999999999868,
+        0.0,
+        0.0,
+        99.99999999999868,
+        -1.629206793918314e-05,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "PLANTER_TERRA_BASE"
+    },
+    {
+      "mesh": 0,
+      "name": "PLANTER_TERRA_BASE_PLANTER_BOTTOM_CROSS_Mat_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -2.646977960169688e-23,
+        0.0,
+        0.0,
+        2.646977960169688e-23,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "LIVISTONA_CHINENSIS"
+    },
+    {
+      "mesh": 1,
+      "name": "LIVISTONA_CHINENSIS_LIVISTONA_CHINENSIS_Mat_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    },
+    {
+      "sampler": 0,
+      "source": 6
+    }
+  ]
+}
