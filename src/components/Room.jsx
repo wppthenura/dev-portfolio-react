@@ -18,21 +18,19 @@ const Room = () => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  // 🔶 Load wood texture for floor
+  // Load textures
   const woodTexture = useLoader(THREE.TextureLoader, "/textures/wood.jpg");
   woodTexture.wrapS = woodTexture.wrapT = THREE.RepeatWrapping;
-  woodTexture.repeat.set(1, 1); // adjust stripes density
+  woodTexture.repeat.set(1, 1);
+
+  const windowTexture = useLoader(THREE.TextureLoader, "/textures/spring_window_view.jpg");
 
   return (
     <>
-      {/* Floor with striped orange wood texture */}
+      {/* Floor */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[20, 25]} />
-        <meshStandardMaterial
-          map={woodTexture}
-          roughness={0.6}
-          metalness={0.2}
-        />
+        <meshStandardMaterial map={woodTexture} roughness={0.6} metalness={0.2} />
       </mesh>
 
       {/* Left Wall */}
@@ -49,7 +47,17 @@ const Room = () => {
         <Edges scale={1.01} threshold={15} color="black" />
       </mesh>
 
-      {/* Corner Shadow (fake beam for 90° corner) */}
+            {/* Window on Right Wall */}
+      <group rotation={[-0.005, -Math.PI / 4.5, -0.05]} position={[9.5, 4.7, 4.7]}>
+        {/* Shifted left so its right edge touches the group origin */}
+        <mesh position={[-2.5, 0, 0]}>
+          <planeGeometry args={[5, 3]} />
+          <meshBasicMaterial map={windowTexture} />
+        </mesh>
+      </group>
+
+
+      {/* Corner Shadow */}
       <mesh position={[0.5, 1, -5.5]} rotation={[0, 0, 0]}>
         <boxGeometry args={[0.1, 20, 0.1]} />
         <meshStandardMaterial color="grey" opacity={0.17} transparent />
