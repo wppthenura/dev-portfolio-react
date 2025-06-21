@@ -2,8 +2,7 @@
 import { useGLTF, Text } from "@react-three/drei";
 
 const ComputerModel = ({ isMobile }) => {
-  const computer = useGLTF("/desktop_pc/scene.gltf"); // ✅ path from public/
-
+  const computer = useGLTF("/desktop_pc/scene.gltf"); 
   return (
     <mesh>
       <hemisphereLight intensity={0.75} groundColor="black" />
@@ -23,19 +22,6 @@ const ComputerModel = ({ isMobile }) => {
         position={isMobile ? [0, -7, -2.2] : [-3.7, 3, 1.55]}
         rotation={[0.05, 5.57, -0.005]}
       />
-
-      {/* Floating Text */}
-      <Text
-        position={[-4, -1, 7.9]}
-        fontSize={0.2}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        maxWidth={6}
-        rotation={[1.53, Math.PI / 1.8, 0.03]}
-      >
-        I'm your creative companion 💡
-      </Text>
     </mesh>
   );
 };
