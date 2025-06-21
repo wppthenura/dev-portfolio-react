@@ -6,6 +6,7 @@ import CanvasLoader from "./Loader";
 import { Edges } from "@react-three/drei";
 import Chair from "./canvas/Chair";
 import Palm from "./canvas/PalmPlant";
+import DigitalClock from "./canvas/DigitalClock"; // ✅ NEW
 
 const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -18,7 +19,6 @@ const Room = () => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  // Load textures
   const woodTexture = useLoader(THREE.TextureLoader, "/textures/wood.jpg");
   woodTexture.wrapS = woodTexture.wrapT = THREE.RepeatWrapping;
   woodTexture.repeat.set(1, 1);
@@ -47,21 +47,25 @@ const Room = () => {
         <Edges scale={1.01} threshold={15} color="black" />
       </mesh>
 
-            {/* Window on Right Wall */}
+      {/* Window on Right Wall */}
       <group rotation={[-0.005, -Math.PI / 4.5, -0.05]} position={[9.5, 4.7, 4.7]}>
-        {/* Shifted left so its right edge touches the group origin */}
-        <mesh position={[-2.5, 0, 0]}>
+        <mesh position={[-2.5, 0, 0.1]}>
           <planeGeometry args={[5, 3]} />
           <meshBasicMaterial map={windowTexture} />
         </mesh>
       </group>
-
 
       {/* Corner Shadow */}
       <mesh position={[0.5, 1, -5.5]} rotation={[0, 0, 0]}>
         <boxGeometry args={[0.1, 20, 0.1]} />
         <meshStandardMaterial color="grey" opacity={0.17} transparent />
       </mesh>
+
+      <DigitalClock
+        position={[-4, 6, 3.5]} // Move this wherever you want
+        rotation={[0, Math.PI / 4, 0.05]} // Match wall angle
+        color="black"
+      />
 
       {/* Models */}
       <Suspense fallback={<CanvasLoader />}>
