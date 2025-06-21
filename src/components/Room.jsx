@@ -16,7 +16,7 @@ const ProjectButton = ({ woodTexture }) => {
     if (buttonRef.current) {
       buttonRef.current.position.y = THREE.MathUtils.lerp(
         buttonRef.current.position.y,
-        pressed ? 0.000 : 0.18,
+        pressed ? 0.0 : 0.18,
         0.1
       );
     }
@@ -25,7 +25,7 @@ const ProjectButton = ({ woodTexture }) => {
   return (
     <group
       ref={buttonRef}
-      position={[0, 0.5, 2]} // Adjust this to place the button on floor
+      position={[-1, 0, 2.7]} // Existing button position
       onClick={() => setPressed(!pressed)}
     >
       {/* Wooden Button */}
@@ -49,8 +49,49 @@ const ProjectButton = ({ woodTexture }) => {
   );
 };
 
+// New generic button component for reusability
+const WoodenTileButton = ({ woodTexture, position, label }) => {
+  const [pressed, setPressed] = useState(false);
+  const buttonRef = useRef();
+
+  useFrame(() => {
+    if (buttonRef.current) {
+      buttonRef.current.position.y = THREE.MathUtils.lerp(
+        buttonRef.current.position.y,
+        pressed ? 0.0 : 0.18,
+        0.1
+      );
+    }
+  });
+
+  return (
+    <group
+      ref={buttonRef}
+      position={position}
+      onClick={() => setPressed(!pressed)}
+    >
+      <mesh>
+        <boxGeometry args={[2, 0.35, 1]} />
+        <meshStandardMaterial map={woodTexture} />
+      </mesh>
+      <Text
+        position={[0, 0.01, 0.5]}
+        fontSize={0.3}
+        color="white"
+        anchorX="center"
+        anchorY="middle"
+        outlineWidth={0.01}
+        outlineColor="black"
+      >
+        {label}
+      </Text>
+    </group>
+  );
+};
+
 const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [chairRotation, setChairRotation] = useState(9.2); // initial Y rotation in radians
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -68,6 +109,14 @@ const Room = () => {
     THREE.TextureLoader,
     "/textures/spring_window_view.jpg"
   );
+
+  // Positions: relative to the original ProjectButton at [0, 0.5, 2]
+  // "Right back" means +x, +z (to the right and behind)
+  // "Left front" means -x, -z (to the left and in front)
+
+  const projectButtonPosition = [0, 0.5, 2];
+  const aboutMePosition = [2, 0.5, 0.9]; // Right back
+  const skillsPosition = [-2, 0.5, -0.5]; // Left front
 
   return (
     <>
@@ -115,13 +164,29 @@ const Room = () => {
         color="black"
       />
 
-      {/* Projects Button */}
-      <ProjectButton woodTexture={woodTexture} />
+      {/* Existing Projects Button */}
+      <ProjectButton woodTexture={woodTexture} position={projectButtonPosition} />
+
+      {/* New Buttons */}
+      <WoodenTileButton
+        woodTexture={woodTexture}
+        position={aboutMePosition}
+        label="About me"
+      />
+      <WoodenTileButton
+        woodTexture={woodTexture}
+        position={skillsPosition}
+        label="Skills"
+      />
 
       {/* Models */}
       <Suspense fallback={<CanvasLoader />}>
         <ComputerModel isMobile={isMobile} />
-        <Chair isMobile={isMobile} />
+        <Chair
+          isMobile={isMobile}
+          rotation={chairRotation}
+          onRotate={setChairRotation}
+        />
         <Palm isMobile={isMobile} />
       </Suspense>
     </>

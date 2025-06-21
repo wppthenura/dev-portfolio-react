@@ -49,3 +49,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
+canvas {
+  cursor: default;
+}
+
+canvas:hover {
+  cursor: url('/cursors/scroll-gesture.png'), auto; /* Replace with your circular cursor image */
+}
