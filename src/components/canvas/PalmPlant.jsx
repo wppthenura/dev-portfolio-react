@@ -7,7 +7,7 @@ const Palm = ({ isMobile }) => {
   const palm = useGLTF("./3D_palm/scene.gltf");
 
   const groupRef = useRef();
-  const modelRef = useRef(); // <- NEW: Ref to rotate the actual model inside
+  const modelRef = useRef(); 
 
   const [hovered, setHovered] = useState(false);
   const [zoomed, setZoomed] = useState(false);
@@ -22,7 +22,6 @@ const Palm = ({ isMobile }) => {
   const defaultPos = new THREE.Vector3(0.5, 0, -3.7);
   const zoomedPos = new THREE.Vector3(0, 1, 0);
 
-  // === Scroll Zoom Detection ===
   useEffect(() => {
     const onWheel = (e) => {
       if (!hovered) return;
@@ -40,7 +39,6 @@ const Palm = ({ isMobile }) => {
     return () => window.removeEventListener("wheel", onWheel);
   }, [hovered]);
 
-  // === Drag Rotate Detection ===
   useEffect(() => {
     const onPointerDown = (e) => {
       if (zoomed) {
@@ -70,7 +68,6 @@ const Palm = ({ isMobile }) => {
     };
   }, [zoomed]);
 
-  // === Animation Loop ===
   useFrame(() => {
     if (!groupRef.current || !modelRef.current) return;
 
@@ -81,7 +78,7 @@ const Palm = ({ isMobile }) => {
     groupRef.current.position.copy(currentPosition.current);
     groupRef.current.scale.setScalar(scale.current);
 
-    // Only apply rotation to the inner model group
+
     if (zoomed) {
       modelRef.current.rotation.y = rotationY.current;
     } else {

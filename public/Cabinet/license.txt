@@ -1,0 +1,11 @@
+Model Information:
+* title:	Drawer Cabinet
+* source:	https://sketchfab.com/3d-models/drawer-cabinet-db0d1a1cf4914cd29e9bc75827cf29ad
+* author:	Esther3D (https://sketchfab.com/Esther3d)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Drawer Cabinet" (https://sketchfab.com/3d-models/drawer-cabinet-db0d1a1cf4914cd29e9bc75827cf29ad) by Esther3D (https://sketchfab.com/Esther3d) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

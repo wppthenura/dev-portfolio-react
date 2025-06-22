@@ -7,6 +7,8 @@ import CanvasLoader from "./Loader";
 import Chair from "./canvas/Chair";
 import Palm from "./canvas/PalmPlant";
 import DigitalClock from "./canvas/DigitalClock";
+import AllTexts from './AllTexts';
+import Cabinet from "./canvas/Cabinet";
 
 const ProjectButton = ({ woodTexture }) => {
   const [pressed, setPressed] = useState(false);
@@ -109,14 +111,9 @@ const Room = () => {
     THREE.TextureLoader,
     "/textures/spring_window_view.jpg"
   );
-
-  // Positions: relative to the original ProjectButton at [0, 0.5, 2]
-  // "Right back" means +x, +z (to the right and behind)
-  // "Left front" means -x, -z (to the left and in front)
-
   const projectButtonPosition = [0, 0.5, 2];
-  const aboutMePosition = [2, 0.5, 0.9]; // Right back
-  const skillsPosition = [-2, 0.5, -0.5]; // Left front
+  const aboutMePosition = [1.5, 0.5, 0.5]; // Right back
+  const skillsPosition = [-2.5, 0.5, 0.1]; // Left front
 
   return (
     <>
@@ -164,6 +161,8 @@ const Room = () => {
         color="black"
       />
 
+      {/* ⬇️ Global text placement */}
+      <AllTexts />
       {/* Existing Projects Button */}
       <ProjectButton woodTexture={woodTexture} position={projectButtonPosition} />
 
@@ -178,6 +177,7 @@ const Room = () => {
         position={skillsPosition}
         label="Skills"
       />
+      
 
       {/* Models */}
       <Suspense fallback={<CanvasLoader />}>
@@ -188,6 +188,7 @@ const Room = () => {
           onRotate={setChairRotation}
         />
         <Palm isMobile={isMobile} />
+        <Cabinet isMobile={isMobile} />
       </Suspense>
     </>
   );
