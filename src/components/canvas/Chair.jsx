@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, Text } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 
@@ -9,18 +9,16 @@ const Chair = ({ isMobile }) => {
   const [hovered, setHovered] = useState(false);
 
   // === [1] DEFAULT ORBIT ROTATION AROUND ROOM ===
-  const defaultOrbitRotation = 0; // ← this rotates the CHAIR'S POSITION around a circle
+  const defaultOrbitRotation = 0;
   const orbitRotation = useRef(defaultOrbitRotation);
   const currentOrbit = useRef(defaultOrbitRotation);
 
   // === [2] DEFAULT CHAIR DIRECTION (which way it's facing) ===
-  const defaultChairFacing = 9.2; // ← this makes the CHAIR rotate around its own axis
+  const defaultChairFacing = 9.2;
 
-  // Orbit bounds
   const minOrbit = -Math.PI / 1000;
   const maxOrbit = Math.PI / 8.7;
 
-  // Smooth orbit movement
   useFrame(() => {
     if (groupRef.current) {
       currentOrbit.current = THREE.MathUtils.lerp(
@@ -28,16 +26,13 @@ const Chair = ({ isMobile }) => {
         orbitRotation.current,
         0.1
       );
-
-      // Apply orbit rotation (around y)
       const radius = 5.1;
       const x = radius * Math.sin(currentOrbit.current);
       const z = radius * Math.cos(currentOrbit.current);
-      groupRef.current.position.set(-3.7 + x, 1, z); // You can adjust -3.7 to move the orbit center
+      groupRef.current.position.set(-3.7 + x, 1, z);
     }
   });
 
-  // Scroll affects orbit only when hovered
   useEffect(() => {
     const handleWheel = (e) => {
       if (!hovered) return;
@@ -59,14 +54,30 @@ const Chair = ({ isMobile }) => {
       <primitive
         object={chair.scene}
         scale={isMobile ? 0.7 : 0.12}
-        position={isMobile ? [0, -7, -2.2] : [0, 0, 0]} // center of group, actual position is handled above
-        rotation={[0, defaultChairFacing, 0.05]} // facing direction of the chair itself
+        position={isMobile ? [0, -7, -2.2] : [0, 0, 0]}
+        rotation={[0, defaultChairFacing, 0.05]}
       />
+
+      {/* Scroll instruction text */}
       {hovered && (
-        <mesh position={[0, 3, 0]}>
-          <planeGeometry args={[5, 5]} />
-          <meshBasicMaterial transparent opacity={0} />
-        </mesh>
+        <>
+          <Text
+            position={[1, 1.45, 0.3]}
+            rotation={[0.15, Math.PI / 2, 1.4]}
+            fontSize={0.1}
+            color="white"
+            anchorX="center"
+            anchorY="middle"
+            outlineWidth={0.01}
+            outlineColor="black"
+          >
+            Scroll  to  move
+          </Text>
+          <mesh position={[0, 3, 0]}>
+            <planeGeometry args={[5, 5]} />
+            <meshBasicMaterial transparent opacity={0} />
+          </mesh>
+        </>
       )}
     </group>
   );

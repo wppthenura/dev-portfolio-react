@@ -159,7 +159,7 @@ const Room = () => {
       </mesh>
 
       <DigitalClock
-        position={[-4, 6, 3.5]}
+        position={[-4.1, 5.9, 4.5]}
         rotation={[0, Math.PI / 4, 0.05]}
         color="black"
       />
