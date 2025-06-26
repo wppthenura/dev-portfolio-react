@@ -36,7 +36,7 @@ const WaterBubbleText = () => {
         anchorX="center"
         anchorY="middle"
         position={[0, 0.4, 1]}  // top line
-      >I am
+      > I am
       </Text>
 
       <Text

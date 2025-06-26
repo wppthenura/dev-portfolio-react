@@ -9,6 +9,7 @@ import Palm from "./canvas/PalmPlant";
 import DigitalClock from "./canvas/DigitalClock";
 import AllTexts from './AllTexts';
 import Cabinet from "./canvas/Cabinet";
+import Techballs from './Techballs';
 
 const ProjectButton = ({ woodTexture }) => {
   const [pressed, setPressed] = useState(false);
@@ -189,6 +190,7 @@ const Room = () => {
         />
         <Palm isMobile={isMobile} />
         <Cabinet isMobile={isMobile} />
+        <Techballs isMobile={isMobile}/>
       </Suspense>
     </>
   );
