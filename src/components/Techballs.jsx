@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { TextureLoader } from 'three';
+import { TextureLoader, AdditiveBlending } from 'three';
 
 const techLogos = [
   'reactjs.png',
@@ -11,10 +11,10 @@ const techLogos = [
   'threejs.png',
   'typescript.png',
   'mongodb.png',
-  'css.png'
+  'css.png',
 ];
 
-const HologramBall = ({ texturePath, position, rotationSpeed = 0.01 }) => {
+const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
   const groupRef = useRef();
   const [texture, setTexture] = useState(null);
 
@@ -28,33 +28,60 @@ const HologramBall = ({ texturePath, position, rotationSpeed = 0.01 }) => {
     );
   }, [texturePath]);
 
-  useFrame(() => {
+  useFrame(({ clock }) => {
     if (groupRef.current) {
       groupRef.current.rotation.y += rotationSpeed;
+
+      const flicker = 0.9 + Math.sin(clock.elapsedTime * 12) * 0.05;
+      groupRef.current.children.forEach((child) => {
+        if (child.material?.emissiveIntensity !== undefined) {
+          child.material.emissiveIntensity = flicker;
+        }
+      });
     }
   });
 
   return (
     <group ref={groupRef} position={position}>
-      {/* Glowing Hologram Sphere */}
-      <mesh>
-        <sphereGeometry args={[0.7, 64, 64]} />
-        <meshStandardMaterial
+      {/* Glowing base ring */}
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
+        <ringGeometry args={[0.4, 0.6, 8]} />
+        <meshBasicMaterial
           color="#00ffff"
           transparent
-          opacity={0.15}
-          roughness={0.1}
-          metalness={0.5}
-          emissive="#00ffff"
-          emissiveIntensity={0.6}
+          opacity={0.35}
+          blending={AdditiveBlending}
         />
       </mesh>
 
-      {/* Logo plane INSIDE the sphere */}
+      {/* Volumetric light beam */}
+      <mesh position={[0, 0.6, 0]}>
+        <cylinderGeometry args={[0.2, 0.01, 0.5, 40, 1, true]} />
+        <meshStandardMaterial
+          color="#00ffff"
+          transparent
+          opacity={0.14}
+          roughness={0.1}
+          metalness={0.6}
+          emissive="#00ffff"
+          emissiveIntensity={1.5}
+          side={2} // DoubleSide
+        />
+      </mesh>
+
+      {/* Floating logo in hologram */}
       {texture && (
-        <mesh position={[0, 0, 0]} scale={[0.45, 0.45, 1]}>
+        <mesh position={[0, 1.1, 0]} scale={[0.8, 0.8, 1]}>
           <planeGeometry args={[1, 1]} />
-          <meshBasicMaterial map={texture} transparent toneMapped={false} />
+          <meshBasicMaterial
+            map={texture}
+            transparent
+            opacity={0.9}
+            color="#00ffff"
+            blending={AdditiveBlending}
+            depthWrite={false}
+            toneMapped={false}
+          />
         </mesh>
       )}
     </group>
@@ -65,17 +92,14 @@ const Techballs = () => {
   return (
     <>
       {techLogos.map((logo, index) => {
-        const spacing = 1.7;
+        const spacing = 2.5;
         const x = index * spacing - ((techLogos.length - 1) * spacing) / 2;
-        const y = 1.2;
-        const z = 0;
-
         return (
-          <HologramBall
+          <HologramDisplay
             key={`${logo}-${index}`}
             texturePath={logo}
-            position={[x, y, z]}
-            rotationSpeed={0.004 + index * 0.001}
+            position={[x, 0, 0]}
+            rotationSpeed={0.002 + index * 0.001}
           />
         );
       })}
