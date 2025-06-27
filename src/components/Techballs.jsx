@@ -36,23 +36,25 @@ const HologramBall = ({ texturePath, position, rotationSpeed = 0.01 }) => {
 
   return (
     <group ref={groupRef} position={position}>
-      {/* Glowing bubble */}
+      {/* Glowing Hologram Sphere */}
       <mesh>
-        <sphereGeometry args={[0.6, 64, 64]} /> {/* ⬅️ Smaller */}
+        <sphereGeometry args={[0.7, 64, 64]} />
         <meshStandardMaterial
           color="#00ffff"
           transparent
           opacity={0.15}
+          roughness={0.1}
+          metalness={0.5}
           emissive="#00ffff"
-          emissiveIntensity={1}
+          emissiveIntensity={0.6}
         />
       </mesh>
 
-      {/* Logo */}
+      {/* Logo plane INSIDE the sphere */}
       {texture && (
-        <mesh position={[0, 0, 0.61]} scale={[0.45, 0.45, 1]}>
+        <mesh position={[0, 0, 0]} scale={[0.45, 0.45, 1]}>
           <planeGeometry args={[1, 1]} />
-          <meshBasicMaterial map={texture} transparent />
+          <meshBasicMaterial map={texture} transparent toneMapped={false} />
         </mesh>
       )}
     </group>
@@ -63,16 +65,16 @@ const Techballs = () => {
   return (
     <>
       {techLogos.map((logo, index) => {
-        const angle = (index / techLogos.length) * Math.PI * 2;
-        const radius = 2.5; // ⬅️ Smaller and more centered
-        const x = Math.cos(angle) * radius;
-        const z = Math.sin(angle) * radius;
+        const spacing = 1.7;
+        const x = index * spacing - ((techLogos.length - 1) * spacing) / 2;
+        const y = 1.2;
+        const z = 0;
 
         return (
           <HologramBall
             key={`${logo}-${index}`}
             texturePath={logo}
-            position={[x, 1.2, z]} // ⬅️ Lowered height a bit
+            position={[x, y, z]}
             rotationSpeed={0.004 + index * 0.001}
           />
         );
