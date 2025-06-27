@@ -1,17 +1,15 @@
-// src/components/Techballs.jsx
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { TextureLoader, AdditiveBlending } from 'three';
+import { TextureLoader, AdditiveBlending, DoubleSide } from 'three';
 
-const techLogos = [
-  'reactjs.png',
-  'nodejs.png',
-  'javascript.png',
-  'threejs.png',
-  'typescript.png',
-  'mongodb.png',
-  'css.png',
+const techItems = [
+  { texture: 'reactjs.png', position: [-5, 0, 7] },
+  { texture: 'nodejs.png', position: [-4.5, 0, 1] },
+  { texture: 'javascript.png', position: [-0.5, 0, -0.9] },
+  { texture: 'threejs.png', position: [2, 0, -1] },
+  { texture: 'typescript.png', position: [4, 0, 0] },
+  { texture: 'mongodb.png', position: [7.5, 0, 1] },
+  { texture: 'css.png', position: [10, 0, -1] },
 ];
 
 const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
@@ -42,7 +40,7 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
   });
 
   return (
-    <group ref={groupRef} position={position}>
+    <group ref={groupRef} position={position} frustumCulled={false}>
       {/* Glowing base ring */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
         <ringGeometry args={[0.4, 0.6, 8]} />
@@ -51,6 +49,7 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
           transparent
           opacity={0.35}
           blending={AdditiveBlending}
+          side={DoubleSide}
         />
       </mesh>
 
@@ -65,22 +64,27 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
           metalness={0.6}
           emissive="#00ffff"
           emissiveIntensity={1.5}
-          side={2} // DoubleSide
+          side={DoubleSide}
         />
       </mesh>
 
-      {/* Floating logo in hologram */}
+      {/* Floating logo */}
       {texture && (
-        <mesh position={[0, 1.1, 0]} scale={[0.8, 0.8, 1]}>
+        <mesh
+          position={[0, 1.25, 0]}
+          scale={[0.7, 0.7, 0.7]}
+          frustumCulled={false}
+        >
           <planeGeometry args={[1, 1]} />
           <meshBasicMaterial
             map={texture}
             transparent
-            opacity={0.9}
+            opacity={1}
             color="#00ffff"
             blending={AdditiveBlending}
-            depthWrite={false}
+            depthWrite={true}
             toneMapped={false}
+            side={DoubleSide}
           />
         </mesh>
       )}
@@ -91,18 +95,14 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
 const Techballs = () => {
   return (
     <>
-      {techLogos.map((logo, index) => {
-        const spacing = 2.5;
-        const x = index * spacing - ((techLogos.length - 1) * spacing) / 2;
-        return (
-          <HologramDisplay
-            key={`${logo}-${index}`}
-            texturePath={logo}
-            position={[x, 0, 0]}
-            rotationSpeed={0.002 + index * 0.001}
-          />
-        );
-      })}
+      {techItems.map((item, index) => (
+        <HologramDisplay
+          key={`${item.texture}-${index}`}
+          texturePath={item.texture}
+          position={item.position}
+          rotationSpeed={0.003 + index * 0.001}
+        />
+      ))}
     </>
   );
 };
