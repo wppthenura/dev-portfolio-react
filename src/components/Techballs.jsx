@@ -1,5 +1,3 @@
-// src/components/Techballs.jsx
-
 import React, { useRef, useState, useEffect } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { TextureLoader, AdditiveBlending, DoubleSide } from 'three';
@@ -12,10 +10,9 @@ const allLogos = [
 
 const fixedPositions = [
   [-4.5, 0, 1.5],
-  [-0.1, 0, 2],
-  [4, 0, 3],
+  [6.7, -0.2, 3.5],
+  [4.3, 0, 2.3],
   [-5.5, 0, 4],
-  [2, 0, -2],
 ];
 
 const getRandomLogo = (exclude = []) => {
@@ -30,9 +27,8 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
   const [angle, setAngle] = useState(0);
   const [yOffset, setYOffset] = useState(0);
   const [opacity, setOpacity] = useState(1);
-  const [phase, setPhase] = useState('showing'); // 'showing' → 'fadingOut' → 'fadingIn'
+  const [phase, setPhase] = useState('showing'); 
 
-  // Load texture when logo changes
   useEffect(() => {
     const loader = new TextureLoader();
     loader.load(`/tech/${logo}`, setTexture, undefined, (err) =>
@@ -43,17 +39,14 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
   useFrame(() => {
     if (!groupRef.current) return;
 
-    // Rotate
     groupRef.current.rotation.y += 0.01;
     setAngle((prev) => prev + 0.01);
 
-    // After one full rotation
     if (angle >= Math.PI * 2 && phase === 'showing') {
       setPhase('fadingOut');
       setAngle(0);
     }
 
-    // Animate phases
     if (phase === 'fadingOut') {
       setYOffset((y) => y - 0.02);
       setOpacity((o) => o - 0.04);
@@ -78,7 +71,7 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
     <group ref={groupRef} position={position} frustumCulled={false}>
       {/* Beam */}
       <mesh position={[0, 0.5, 0]}>
-        <cylinderGeometry args={[0.15, 0.01, 0.4, 40, 1, true]} />
+        <cylinderGeometry args={[0.11, 0.01, 0.37, 40, 1, true]} />
         <meshStandardMaterial
           color="#00ffff"
           transparent
@@ -91,11 +84,10 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
         />
       </mesh>
 
-      {/* Logo */}
       {texture && (
         <mesh
-          position={[0, 1.1 + yOffset, 0]}
-          scale={[0.57, 0.57, 0.57]}
+          position={[0, 1 + yOffset, 0]}
+          scale={[0.5, 0.5, 0.5]}
           frustumCulled={false}
         >
           <planeGeometry args={[1, 1]} />
@@ -117,7 +109,6 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
 
 const Techballs = () => {
   const [usedLogos, setUsedLogos] = useState(() => {
-    // Get 5 random non-repeating initial logos
     const shuffled = [...allLogos].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 5);
   });
