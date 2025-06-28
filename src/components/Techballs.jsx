@@ -9,10 +9,7 @@ const allLogos = [
 ];
 
 const fixedPositions = [
-  [-4.5, 0, 1.5],
-  [6.7, -0.2, 3.5],
-  [4.3, 0, 2.3],
-  [-5.5, 0, 4],
+  [6.67, -0.2, 3.5],
 ];
 
 const getRandomLogo = (exclude = []) => {
@@ -69,25 +66,11 @@ const HologramDisplay = ({ position, initialTexture, onChangeRequest, sharedUsed
 
   return (
     <group ref={groupRef} position={position} frustumCulled={false}>
-      {/* Beam */}
-      <mesh position={[0, 0.5, 0]}>
-        <cylinderGeometry args={[0.11, 0.01, 0.37, 40, 1, true]} />
-        <meshStandardMaterial
-          color="#00ffff"
-          transparent
-          opacity={0.14}
-          roughness={0.1}
-          metalness={0.6}
-          emissive="#00ffff"
-          emissiveIntensity={1.5}
-          side={DoubleSide}
-        />
-      </mesh>
 
       {texture && (
         <mesh
-          position={[0, 1 + yOffset, 0]}
-          scale={[0.5, 0.5, 0.5]}
+          position={[0, 1.0 + yOffset, 0]}
+          scale={[0.4, 0.4, 0.4]}
           frustumCulled={false}
         >
           <planeGeometry args={[1, 1]} />
