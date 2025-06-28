@@ -41,17 +41,6 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
 
   return (
     <group ref={groupRef} position={position} frustumCulled={false}>
-      {/* Glowing base ring */}
-      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]}>
-        <ringGeometry args={[0.4, 0.6, 8]} />
-        <meshBasicMaterial
-          color="#00ffff"
-          transparent
-          opacity={0.35}
-          blending={AdditiveBlending}
-          side={DoubleSide}
-        />
-      </mesh>
 
       {/* Volumetric light beam */}
       <mesh position={[0, 0.6, 0]}>
