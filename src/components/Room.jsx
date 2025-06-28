@@ -11,6 +11,10 @@ import AllTexts from './AllTexts';
 import Cabinet from "./canvas/Cabinet";
 import Techballs from './Techballs';
 import './OverlayPanel.css';
+import AboutMeContent from './AboutMeContent';
+import SkillsContent from './SkillsContent';
+import ProjectsContent from './ProjectsContent';
+
 
 const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setPressed }) => {
   const buttonRef = useRef();
@@ -68,58 +72,40 @@ const TVOverlay = ({ contentType, onClose }) => {
       </mesh>
 
       <Html
-        position={[0, 0, 0.11]}
-        transform
-        occlude
-        style={{
-          width: '360px',
-          height: '240px',
-          background: 'white',
-          borderRadius: '12px',
-          overflowY: 'auto',
-          padding: '1rem',
-        }}
-      >
-        <div>
-          <button
-            onClick={onClose}
-            style={{
-              position: 'absolute',
-              top: 10,
-              right: 20,
-              background: 'none',
-              border: 'none',
-              fontSize: '1.5rem',
-              cursor: 'pointer'
-            }}
-          >
-            ✖
-          </button>
+  position={[0, 0, 0.11]}
+  transform
+  occlude
+  style={{
+    width: '360px',
+    height: '240px',
+    background: 'white',
+    borderRadius: '12px',
+    overflowY: 'auto',
+    padding: '1rem',
+  }}
+>
+  <div>
+    <button
+      onClick={onClose}
+      style={{
+        position: 'absolute',
+        top: 10,
+        right: 20,
+        background: 'none',
+        border: 'none',
+        fontSize: '1.5rem',
+        cursor: 'pointer'
+      }}
+    >
+      ✖
+    </button>
 
-          {contentType === "about" && (
-            <div>
-              <h2>About Me</h2>
-              <p>I am a W.P.Pulindu Thenura</p>
-            </div>
-          )}
-          {contentType === "skills" && (
-            <div>
-              <h2>Skills</h2>
-              <ul>
-                <li>React</li>
-                <li>Three.js</li>
-                <li>Node.js</li>
-              </ul>
-            </div>
-          )}
-          {contentType === "projects" && (
-            <div>
-              <h2>Projects</h2>
-              <p>Here are some of my projects and demos built using WebGL and R3F.</p>
-            </div>
-          )}
-        </div>
-      </Html>
+    {contentType === "about" && <AboutMeContent />}
+    {contentType === "skills" && <SkillsContent />}
+    {contentType === "projects" && <ProjectsContent />}
+  </div>
+</Html>
+
     </group>
   );
 };
