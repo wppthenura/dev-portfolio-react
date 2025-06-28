@@ -3,13 +3,11 @@ import { useFrame } from '@react-three/fiber';
 import { TextureLoader, AdditiveBlending, DoubleSide } from 'three';
 
 const techItems = [
-  { texture: 'reactjs.png', position: [-5, 0, 7] },
-  { texture: 'nodejs.png', position: [-4.5, 0, 1] },
-  { texture: 'javascript.png', position: [-0.5, 0, -0.9] },
-  { texture: 'threejs.png', position: [2, 0, -1] },
-  { texture: 'typescript.png', position: [4, 0, 0] },
-  { texture: 'mongodb.png', position: [7.5, 0, 1] },
-  { texture: 'css.png', position: [10, 0, -1] },
+  { texture: 'reactjs.png', position: [-4.5, 0, 1.5] },
+  { texture: 'nodejs.png', position: [-0.1, 0, 2] },
+  { texture: 'typescript.png', position: [4, 0, 3] },
+  { texture: 'mongodb.png', position: [-5.5, 0, 4] },
+  { texture: 'css.png', position: [2, 0, -2] },
 ];
 
 const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
@@ -41,10 +39,9 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
 
   return (
     <group ref={groupRef} position={position} frustumCulled={false}>
-
       {/* Volumetric light beam */}
       <mesh position={[0, 0.6, 0]}>
-        <cylinderGeometry args={[0.2, 0.01, 0.5, 40, 1, true]} />
+        <cylinderGeometry args={[0.15, 0.01, 0.4, 40, 1, true]} />
         <meshStandardMaterial
           color="#00ffff"
           transparent
@@ -60,7 +57,7 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
       {/* Floating logo */}
       {texture && (
         <mesh
-          position={[0, 1.25, 0]}
+          position={[0, 1.15, 0]}
           scale={[0.7, 0.7, 0.7]}
           frustumCulled={false}
         >
@@ -68,7 +65,7 @@ const HologramDisplay = ({ texturePath, position, rotationSpeed = 0.01 }) => {
           <meshBasicMaterial
             map={texture}
             transparent
-            opacity={1}
+            opacity={2}
             color="#00ffff"
             blending={AdditiveBlending}
             depthWrite={true}
