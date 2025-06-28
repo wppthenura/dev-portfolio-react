@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useState, useRef } from "react";
 import * as THREE from "three";
 import { useLoader, useFrame } from "@react-three/fiber";
-import { Edges, Text } from "@react-three/drei";
+import { Edges, Text, Html } from "@react-three/drei";
 import ComputerModel from "./canvas/ComputerModel";
 import CanvasLoader from "./Loader";
 import Chair from "./canvas/Chair";
@@ -10,9 +10,9 @@ import DigitalClock from "./canvas/DigitalClock";
 import AllTexts from './AllTexts';
 import Cabinet from "./canvas/Cabinet";
 import Techballs from './Techballs';
+import './OverlayPanel.css';
 
-const ProjectButton = ({ woodTexture }) => {
-  const [pressed, setPressed] = useState(false);
+const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setPressed }) => {
   const buttonRef = useRef();
 
   useFrame(() => {
@@ -25,54 +25,13 @@ const ProjectButton = ({ woodTexture }) => {
     }
   });
 
-  return (
-    <group
-      ref={buttonRef}
-      position={[-1, 0, 2.7]} // Existing button position
-      onClick={() => setPressed(!pressed)}
-    >
-      {/* Wooden Button */}
-      <mesh>
-        <boxGeometry args={[2, 0.35, 1]} />
-        <meshStandardMaterial map={woodTexture} />
-      </mesh>
-      {/* Label */}
-      <Text
-        position={[0, 0.01, 0.5]}
-        fontSize={0.3}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-        outlineWidth={0.01}
-        outlineColor="black"
-      >
-        Projects
-      </Text>
-    </group>
-  );
-};
-
-// New generic button component for reusability
-const WoodenTileButton = ({ woodTexture, position, label }) => {
-  const [pressed, setPressed] = useState(false);
-  const buttonRef = useRef();
-
-  useFrame(() => {
-    if (buttonRef.current) {
-      buttonRef.current.position.y = THREE.MathUtils.lerp(
-        buttonRef.current.position.y,
-        pressed ? 0.0 : 0.18,
-        0.1
-      );
-    }
-  });
+  const handleClick = () => {
+    setPressed(true);
+    onClick?.();
+  };
 
   return (
-    <group
-      ref={buttonRef}
-      position={position}
-      onClick={() => setPressed(!pressed)}
-    >
+    <group ref={buttonRef} position={position} onClick={handleClick}>
       <mesh>
         <boxGeometry args={[2, 0.35, 1]} />
         <meshStandardMaterial map={woodTexture} />
@@ -92,9 +51,99 @@ const WoodenTileButton = ({ woodTexture, position, label }) => {
   );
 };
 
+const TVOverlay = ({ contentType, onClose }) => {
+  const groupRef = useRef();
+
+  useFrame(() => {
+    if (groupRef.current) {
+      groupRef.current.position.lerp(new THREE.Vector3(0, 2, 1), 0.1);
+    }
+  });
+
+  return (
+    <group ref={groupRef} position={[0, 10, 10]}>
+      <mesh>
+        <boxGeometry args={[4, 3, 0.2]} />
+        <meshStandardMaterial color="#111" metalness={0.6} roughness={0.3} />
+      </mesh>
+
+      <Html
+        position={[0, 0, 0.11]}
+        transform
+        occlude
+        style={{
+          width: '360px',
+          height: '240px',
+          background: 'white',
+          borderRadius: '12px',
+          overflowY: 'auto',
+          padding: '1rem',
+        }}
+      >
+        <div>
+          <button
+            onClick={onClose}
+            style={{
+              position: 'absolute',
+              top: 10,
+              right: 20,
+              background: 'none',
+              border: 'none',
+              fontSize: '1.5rem',
+              cursor: 'pointer'
+            }}
+          >
+            ✖
+          </button>
+
+          {contentType === "about" && (
+            <div>
+              <h2>About Me</h2>
+              <p>I am a W.P.Pulindu Thenura</p>
+            </div>
+          )}
+          {contentType === "skills" && (
+            <div>
+              <h2>Skills</h2>
+              <ul>
+                <li>React</li>
+                <li>Three.js</li>
+                <li>Node.js</li>
+              </ul>
+            </div>
+          )}
+          {contentType === "projects" && (
+            <div>
+              <h2>Projects</h2>
+              <p>Here are some of my projects and demos built using WebGL and R3F.</p>
+            </div>
+          )}
+        </div>
+      </Html>
+    </group>
+  );
+};
+
 const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
-  const [chairRotation, setChairRotation] = useState(9.2); // initial Y rotation in radians
+  const [chairRotation, setChairRotation] = useState(9.2);
+  const [activeOverlay, setActiveOverlay] = useState(null);
+
+  const [buttonStates, setButtonStates] = useState({
+    projects: false,
+    about: false,
+    skills: false
+  });
+
+  const handleOpen = (key) => {
+    setButtonStates(prev => ({ ...prev, [key]: true }));
+    setActiveOverlay(key);
+  };
+
+  const handleClose = () => {
+    setButtonStates(prev => ({ ...prev, [activeOverlay]: false }));
+    setActiveOverlay(null);
+  };
 
   useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 500px)");
@@ -108,41 +157,32 @@ const Room = () => {
   woodTexture.wrapS = woodTexture.wrapT = THREE.RepeatWrapping;
   woodTexture.repeat.set(1, 1);
 
-  const windowTexture = useLoader(
-    THREE.TextureLoader,
-    "/textures/spring_window_view.jpg"
-  );
-  const projectButtonPosition = [0, 0.5, 2];
-  const aboutMePosition = [1.5, 0.5, 0.5]; // Right back
-  const skillsPosition = [-2.5, 0.5, 0.1]; // Left front
+  const windowTexture = useLoader(THREE.TextureLoader, "/textures/spring_window_view.jpg");
+  const projectButtonPosition = [0, 0.5, 2.3];
+  const aboutMePosition = [2.4, 0.5, 0.5];
+  const skillsPosition = [-2.5, 0.5, 0.1];
 
   return (
     <>
-      {/* Floor */}
+      {activeOverlay && <TVOverlay contentType={activeOverlay} onClose={handleClose} />}
+
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[20, 25]} />
-        <meshStandardMaterial
-          map={woodTexture}
-          roughness={0.6}
-          metalness={0.2}
-        />
+        <meshStandardMaterial map={woodTexture} roughness={0.6} metalness={0.2} />
       </mesh>
 
-      {/* Left Wall */}
       <mesh rotation={[0, Math.PI / 4, 0]} position={[-2, 3, -3]}>
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial color="#F1D6B3" />
         <Edges scale={1.01} threshold={15} color="black" />
       </mesh>
 
-      {/* Right Wall */}
       <mesh rotation={[0, -Math.PI / 4, 0]} position={[4, 2.5, -2]}>
         <planeGeometry args={[20, 20]} />
         <meshStandardMaterial color="#F1D6B3" />
         <Edges scale={1.01} threshold={15} color="black" />
       </mesh>
 
-      {/* Window on Right Wall */}
       <group rotation={[-0.005, -Math.PI / 4.5, -0.05]} position={[9.5, 4.7, 4.7]}>
         <mesh position={[-2.5, 0, 0.1]}>
           <planeGeometry args={[5, 3]} />
@@ -150,47 +190,47 @@ const Room = () => {
         </mesh>
       </group>
 
-      {/* Corner Shadow */}
       <mesh position={[0.5, 1, -5.5]} rotation={[0, 0, 0]}>
         <boxGeometry args={[0.1, 20, 0.1]} />
         <meshStandardMaterial color="grey" opacity={0.17} transparent />
       </mesh>
 
-      <DigitalClock
-        position={[-4.1, 5.9, 4.5]}
-        rotation={[0, Math.PI / 4, 0.05]}
-        color="black"
+      <DigitalClock position={[-4.1, 5.9, 4.5]} rotation={[0, Math.PI / 4, 0.05]} color="black" />
+      <AllTexts />
+
+      <WoodenTileButton
+        woodTexture={woodTexture}
+        position={projectButtonPosition}
+        label="Projects"
+        pressed={buttonStates.projects}
+        setPressed={(val) => setButtonStates(prev => ({ ...prev, projects: val }))}
+        onClick={() => handleOpen("projects")}
       />
 
-      {/* ⬇️ Global text placement */}
-      <AllTexts />
-      {/* Existing Projects Button */}
-      <ProjectButton woodTexture={woodTexture} position={projectButtonPosition} />
-
-      {/* New Buttons */}
       <WoodenTileButton
         woodTexture={woodTexture}
         position={aboutMePosition}
         label="About me"
+        pressed={buttonStates.about}
+        setPressed={(val) => setButtonStates(prev => ({ ...prev, about: val }))}
+        onClick={() => handleOpen("about")}
       />
+
       <WoodenTileButton
         woodTexture={woodTexture}
         position={skillsPosition}
         label="Skills"
+        pressed={buttonStates.skills}
+        setPressed={(val) => setButtonStates(prev => ({ ...prev, skills: val }))}
+        onClick={() => handleOpen("skills")}
       />
-      
 
-      {/* Models */}
       <Suspense fallback={<CanvasLoader />}>
         <ComputerModel isMobile={isMobile} />
-        <Chair
-          isMobile={isMobile}
-          rotation={chairRotation}
-          onRotate={setChairRotation}
-        />
+        <Chair isMobile={isMobile} rotation={chairRotation} onRotate={setChairRotation} />
         <Palm isMobile={isMobile} />
         <Cabinet isMobile={isMobile} />
-        <Techballs isMobile={isMobile}/>
+        <Techballs isMobile={isMobile} />
       </Suspense>
     </>
   );
