@@ -146,7 +146,7 @@ const Room = () => {
 
   const windowTexture = useLoader(THREE.TextureLoader, "/textures/spring_window_view.jpg");
   const projectButtonPosition = [0, 0.5, 2.3];
-  const aboutMePosition = [2.4, 0.5, 0.5];
+  const aboutMePosition = [2.1, 0.5, 0.5];
   const skillsPosition = [-2.5, 0.5, 0.1];
 
   return (
@@ -221,8 +221,8 @@ const Room = () => {
         <Techballs isMobile={isMobile} />
       </Suspense>
       
-      <Html
-  position={[3.4, 1, -2]}
+  <Html
+  position={[3.4, 1.07, -2]}
   rotation={[0, -Math.PI / -0.57, 0.057]}
   transform
   occlude
@@ -233,7 +233,7 @@ const Room = () => {
     background: 'transparent',
     padding: '1rem',
     borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
     minWidth: '220px'
   }}
 >
