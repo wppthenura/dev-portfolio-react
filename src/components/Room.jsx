@@ -221,7 +221,52 @@ const Room = () => {
         <Techballs isMobile={isMobile} />
       </Suspense>
       
+      <Html
+  position={[3.4, 1, -2]}
+  rotation={[0, -Math.PI / -0.57, 0.057]}
+  transform
+  occlude
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    background: 'transparent',
+    padding: '1rem',
+    borderRadius: '12px',
+    boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+    minWidth: '220px'
+  }}
+>
+  <div style={{ display: 'flex', gap: '1rem', marginBottom: '0.8rem' }}>
+    <a href="https://github.com/wppthenura" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/github.png" alt="GitHub" width={30} height={30} style={{ cursor: 'pointer' }} />
+    </a>
+    <a href="https://www.linkedin.com/in/pulindu-thenura-01a70617a/" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/linkedin.png" alt="LinkedIn" width={30} height={30} style={{ cursor: 'pointer' }} />
+    </a>
+    <a href="https://www.instagram.com/pulindu.thenura/" target="_blank" rel="noopener noreferrer">
+      <img src="/icons/instagram.png" alt="Instagram" width={30} height={30} style={{ cursor: 'pointer' }} />
+    </a>
+  </div>
+  <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=wppulindum@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    fontSize: '0.9rem',
+    color: '#333',
+    textDecoration: 'none',
+    cursor: 'pointer'
+  }}
+>
+  wppulindum@gmail.com
+</a>
+
+
+</Html>
+
     </>
+    
   );
 };
 

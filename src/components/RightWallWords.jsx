@@ -22,9 +22,8 @@ const RightWallWords = () => {
     const t = clock.getElapsedTime();
     textRefs.current.forEach((ref, i) => {
       if (!ref) return;
-      // Animate scale in/out with a delay between each word
-      const delay = i * 1; // delay between words
-      const scaleFactor = 1 + 0.3 * Math.sin((t - delay) * 1); // sin wave scale
+      const delay = i * 1; 
+      const scaleFactor = 1 + 0.3 * Math.sin((t - delay) * 1); 
       ref.scale.setScalar(scaleFactor);
     });
   });
