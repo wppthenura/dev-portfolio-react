@@ -265,8 +265,8 @@ const Room = () => {
 </a>
 </Html>
 <Html
-  position={[3.75, 4.63, 2.5]}
-  scale={0.3}
+  position={[4.3, 4.77, 0]}
+  scale={0.47}
   rotation={[0, -Math.PI / -0.55, -0.05]}
   transform
   occlude
