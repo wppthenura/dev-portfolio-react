@@ -15,6 +15,7 @@ import AboutMeContent from './AboutMeContent';
 import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
 import RightWallWords from './RightWallWords';
+import LeftWallInfo from './LeftWallInfo';
 
 
 const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setPressed }) => {
@@ -115,6 +116,7 @@ const Room = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [chairRotation, setChairRotation] = useState(9.2);
   const [activeOverlay, setActiveOverlay] = useState(null);
+  const [showTechOverlay, setShowTechOverlay] = useState(false);
 
   const [buttonStates, setButtonStates] = useState({
     projects: false,
@@ -145,8 +147,8 @@ const Room = () => {
   woodTexture.repeat.set(1, 1);
 
   const windowTexture = useLoader(THREE.TextureLoader, "/textures/spring_window_view.jpg");
-  const projectButtonPosition = [0, 0.5, 2.3];
-  const aboutMePosition = [2.1, 0.5, 0.5];
+  const projectButtonPosition = [-1, 0.5, 2.7];
+  const aboutMePosition = [1.7, 0.5, 1];
   const skillsPosition = [-2.5, 0.5, 0.1];
 
   return (
@@ -286,9 +288,9 @@ const Room = () => {
     📌 Did you know ?
   </div>
   <ul style={{ paddingLeft: '1.2rem', margin: 0, fontWeight: 'normal', fontSize: '1rem' }}>
-    <li>Press the wooden logs to see information</li>
-    <li>Drag my Chair, have fun</li>
-    <li>Scroll on the plant to see the tiny ant</li>
+    <li>Press the wooden logs to see information.</li>
+    <li>Drag my Chair, have fun.</li>
+    <li>Scroll on the plant to see the tiny ant.</li>
   </ul>
 </Html>
     </>

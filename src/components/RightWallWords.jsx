@@ -31,7 +31,7 @@ const RightWallWords = () => {
   return (
     <group
       ref={groupRef}
-      position={[-0.1, 0.25, 2.7]}
+      position={[-0.7, 3.4, 2.7]}
       scale={[1, 1, 1]}
       rotation={[0, -Math.PI / 0.56, 0.057]}
     >
