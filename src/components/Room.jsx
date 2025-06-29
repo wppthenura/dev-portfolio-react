@@ -261,12 +261,37 @@ const Room = () => {
 >
   wppulindum@gmail.com
 </a>
-
-
 </Html>
-
+<Html
+  position={[3.75, 4.63, 2.5]}
+  scale={0.3}
+  rotation={[0, -Math.PI / -0.55, -0.05]}
+  transform
+  occlude
+  style={{
+    background: '#fdf5e6',
+    padding: '1rem 1.5rem',
+    borderRadius: '10px',
+    border: '2px solid #d3a15d',
+    boxShadow: '0 6px 12px rgba(0,0,0,0.35)',
+    fontFamily: "'Georgia', serif",
+    color: '#5a3e1b',
+    maxWidth: '280px',
+    userSelect: 'none',
+    cursor: 'default',
+    lineHeight: '1.4',
+  }}
+>
+  <div style={{ fontWeight: 'bold', fontSize: '1.3rem', marginBottom: '0.5rem' }}>
+    📌 Did you know ?
+  </div>
+  <ul style={{ paddingLeft: '1.2rem', margin: 0, fontWeight: 'normal', fontSize: '1rem' }}>
+    <li>Press the wooden logs to see information</li>
+    <li>Drag my Chair, have fun</li>
+    <li>Scroll on the plant to see the tiny ant</li>
+  </ul>
+</Html>
     </>
-    
   );
 };
 

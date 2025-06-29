@@ -20,7 +20,7 @@ const Palm = ({ isMobile }) => {
   const rotationY = useRef(0);
 
   const defaultPos = new THREE.Vector3(0.5, 0, -3.7);
-  const zoomedPos = new THREE.Vector3(0, 1, 0);
+  const zoomedPos = new THREE.Vector3(0, 1, 3);
 
   useEffect(() => {
     const onWheel = (e) => {
