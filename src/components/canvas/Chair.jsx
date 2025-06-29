@@ -74,7 +74,7 @@ const Chair = ({ isMobile }) => {
             Scroll  to  move
           </Text>
           <mesh position={[0, 3, 0]}>
-            <planeGeometry args={[5, 5]} />
+            <planeGeometry args={[5, 1]} />
             <meshBasicMaterial transparent opacity={0} />
           </mesh>
         </>

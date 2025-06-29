@@ -14,6 +14,7 @@ import './OverlayPanel.css';
 import AboutMeContent from './AboutMeContent';
 import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
+import RightWallWords from './RightWallWords';
 
 
 const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setPressed }) => {
@@ -213,11 +214,13 @@ const Room = () => {
 
       <Suspense fallback={<CanvasLoader />}>
         <ComputerModel isMobile={isMobile} />
+        <RightWallWords isMobile={isMobile} />
         <Chair isMobile={isMobile} rotation={chairRotation} onRotate={setChairRotation} />
         <Palm isMobile={isMobile} />
         <Cabinet isMobile={isMobile} />
         <Techballs isMobile={isMobile} />
       </Suspense>
+      
     </>
   );
 };
