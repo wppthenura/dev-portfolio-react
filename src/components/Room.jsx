@@ -42,13 +42,11 @@ const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setP
         <meshStandardMaterial map={woodTexture} />
       </mesh>
       <Text
-        position={[0, 0.01, 0.5]}
+        position={[0, 0.05, 0.55]}
         fontSize={0.3}
         color="white"
         anchorX="center"
         anchorY="middle"
-        outlineWidth={0.01}
-        outlineColor="black"
       >
         {label}
       </Text>
