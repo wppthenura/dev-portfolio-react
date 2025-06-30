@@ -11,7 +11,7 @@ const words = [
   { text: "FULLSTACK", position: [-2, 2.7, 0] },
   { text: "DESIGNER", position: [-0.5, 2.62, 0] },
   { text: "INITIATOR", position: [-1, 1.8, 0] },
-  { text: "THINKER", position: [0, 2.1, 0] }
+  { text: "AI Enthusiast", position: [0, 2.1, 0] }
 ];
 
 const RightWallWords = () => {

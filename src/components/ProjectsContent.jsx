@@ -88,32 +88,7 @@ const ProjectsContent = () => (
     ))}
   </div>
 </li>
-      <li style={{ marginBottom: "24px" }}>
-        <strong>Smart Shelf IoT System</strong>
-        <p style={{ fontSize: "0.9rem", marginTop: "8px" }}>
-          This is a Web Dashboard application which was developed from JavaScript,HTML and CSS to track the Real-time inventory system which was using Arduino, RFID, and Load Cells.This applciation was 100% fully
-          functional and was able to track every detail of the sensors used in the IOT device.
-        </p>
-        <a
-          href="https://github.com/muijayaweera/IoTwebdashboard.git"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ color: "orange" }}
-        >
-          View on GitHub
-        </a>
-        <div
-          style={{
-            marginTop: "10px",
-            height: "120px",
-            background: "#f0f0f0",
-            borderRadius: "8px",
-          }}
-        />
-      </li>
-
-
-      <li style={{ marginBottom: "24px" }}>
+<li style={{ marginBottom: "24px" }}>
   <strong>3D Portfolio Website</strong>
   <p style={{ fontSize: "0.9rem", marginTop: "8px" }}>
     This 3D portfolio website is a fully custom built, interactive experience designed and developed entirely by me. 
@@ -142,6 +117,91 @@ const ProjectsContent = () => (
       objectFit: "cover"
     }}
   />
+</li>
+
+<li style={{ marginBottom: "24px" }}>
+  <strong>YouTube Video Detector</strong>
+  <p style={{ fontSize: "0.9rem", marginTop: "8px" }}>
+    A modern web platform built with Next.js that tracks and ranks YouTube videos based on their Views Per Hour (VPH) using YouTube Data API v3. 
+    The dashboard auto-refreshes every 5 minutes and offers a polished UI with light/dark themes, animated 3D video cards, and Top 5/Recent 5 ranking sections.
+    <br /><br />
+    It includes a “Music Detector” page that uses <code>yt-dlp</code> to extract audio from selected videos, sends it securely (with HMAC‑signed requests) 
+    to ACRCloud’s API, and displays recognized song data with timestamps and metadata. The system combines React frontend, Next.js API routes, 
+    Python audio processing, and third‑party recognition APIs into one unified solution.
+  </p>
+
+  <a
+    href="https://github.com/wppthenura/Viddetector"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "orange" }}
+  >
+    View on GitHub
+  </a>
+
+  <div
+    style={{
+      marginTop: "10px",
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "10px",
+      justifyContent: "center",
+    }}
+  >
+    {["Videodetector1.png", "Videodetector2.png"].map((img, idx) => (
+      <img
+        key={idx}
+        src={`/images/${img}`}
+        alt={`YouTube Video Detector Screenshot ${idx + 1}`}
+        style={{
+          width: "48%",
+          height: "auto",
+          borderRadius: "8px",
+          objectFit: "cover",
+        }}
+      />
+    ))}
+  </div>
+</li>
+
+ <li style={{ marginBottom: "24px" }}>
+  <strong>Smart Shelf IoT System</strong>
+  <p style={{ fontSize: "0.9rem", marginTop: "8px" }}>
+    This is a Web Dashboard application which was developed from JavaScript, HTML and CSS to track the real-time inventory system using Arduino, RFID, and Load Cells.
+    This application was 100% fully functional and capable of monitoring every detail from the IoT sensors accurately.
+  </p>
+  <a
+    href="https://github.com/muijayaweera/IoTwebdashboard.git"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "orange" }}
+  >
+    View on GitHub
+  </a>
+
+  <div
+    style={{
+      marginTop: "10px",
+      display: "flex",
+      flexWrap: "wrap",
+      gap: "10px",
+      justifyContent: "center",
+    }}
+  >
+    {["IOT.jpeg", "IOT2.png"].map((img, idx) => (
+      <img
+        key={idx}
+        src={`/images/${img}`}
+        alt={`IoT System Screenshot ${idx + 1}`}
+        style={{
+          width: "48%",
+          height: "auto",
+          borderRadius: "8px",
+          objectFit: "cover",
+        }}
+      />
+    ))}
+  </div>
 </li>
 
       <li style={{ marginBottom: "24px" }}>
