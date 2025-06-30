@@ -10,7 +10,6 @@ import DigitalClock from "./canvas/DigitalClock";
 import AllTexts from './AllTexts';
 import Cabinet from "./canvas/Cabinet";
 import Techballs from './Techballs';
-import './OverlayPanel.css';
 import AboutMeContent from './AboutMeContent';
 import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
