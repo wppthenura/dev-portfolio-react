@@ -61,19 +61,15 @@ const TVOverlay = ({ contentType, onClose }) => {
 
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.position.lerp(new THREE.Vector3(0, 2, 1), 0.1);
+      groupRef.current.position.lerp(new THREE.Vector3(0, 2, 1), 0.1  );
     }
   });
 
   return (
     <group ref={groupRef} position={[0, 10, 10]}>
-      <mesh>
-        <boxGeometry args={[4, 3, 0.2]} />
-        <meshStandardMaterial color="#111" metalness={0.6} roughness={0.3} />
-      </mesh>
 
       <Html
-  position={[0, 0, 0.11]}
+  position={[0, -0.25, 0.11]}
   transform
   occlude
   style={{

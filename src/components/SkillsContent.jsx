@@ -1,19 +1,79 @@
 import React from "react";
 
 const SkillsContent = () => (
-  <div>
-    <h2>Skills</h2>
-    <ul>
-      <li>Full-stack Web & Mobile Development</li>
-      <li>React, Node.js, Next.js</li>
+  <div
+    style={{
+      fontFamily: "sans-serif", // default font
+      color: "black",
+      padding: "20px",
+      borderRadius: "12px",
+      maxWidth: "800px",
+      margin: "0 auto",
+      lineHeight: "1.6",
+    }}
+  >
+    <style>
+      {`
+        @font-face {
+          font-family: 'BitcountGridDouble';
+          src: url('/fonts/BitcountGridDouble.ttf') format('truetype');
+        }
+      `}
+    </style>
+
+    {/* Custom font only for the title */}
+    <h2
+      style={{
+        fontSize: "1.8rem",
+        marginBottom: "16px",
+        fontFamily: "BitcountGridDouble, sans-serif",
+      }}
+    >
+      Skills
+    </h2>
+
+    <ul style={{ paddingLeft: "20px", listStyleType: "disc" }}>
+      <li>Fullstack Web Development</li>
+      <li>Fullstack Mobile Development</li>
       <li>IoT Systems (Arduino, RFID, Load Cells)</li>
-      <li>UI/UX Design</li>
+      <li>UI/UX Designing</li>
       <li>Database-Driven Applications</li>
       <li>Software Architecture</li>
       <li>Time Management & Leadership</li>
-      <li>Music Copyright Management (YouTube DRM)</li>
-      <li>MS Office Proficiency</li>
-      <li>Languages: English, Sinhala</li>
+      <li>YouTube DRM</li>
+      <li>MS Office / Google Apps Proficiency</li>
+      <li>Master in English</li>
+      <li>Professional Badminton Player</li>
+
+      <br />
+      <br />
+
+      {/* Custom font for subheading */}
+      <span
+        style={{
+          fontFamily: "BitcountGridDouble, sans-serif",
+          fontSize: "1.1rem",
+          display: "inline-block",
+          marginBottom: "8px",
+        }}
+      >
+        <b>Languages I work with</b>
+      </span>
+
+      <br />
+      <br />
+
+      <li>JavaScript</li>
+      <li>C</li>
+      <li>C#</li>
+      <li>Dart</li>
+      <li>Python</li>
+      <li>ReactJS</li>
+      <li>NodeJS</li>
+      <li>ThreeJS</li>
+      <li>HTML</li>
+      <li>TypeScript</li>
+      <li>Go</li>
     </ul>
   </div>
 );
