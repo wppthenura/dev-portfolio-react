@@ -59,7 +59,7 @@ const TVOverlay = ({ contentType, onClose }) => {
 
   useFrame(() => {
     if (groupRef.current) {
-      groupRef.current.position.lerp(new THREE.Vector3(0, 2, 1), 0.1  );
+      groupRef.current.position.lerp(new THREE.Vector3(0, 2, 0.2), 0.1  );
     }
   });
 
@@ -67,12 +67,12 @@ const TVOverlay = ({ contentType, onClose }) => {
     <group ref={groupRef} position={[0, 10, 10]}>
 
       <Html
-  position={[0, -0.25, 0.11]}
+  position={[0, 0, 0.11]}
   transform
   occlude
   style={{
-    width: '360px',
-    height: '240px',
+    width: '500px',
+    height: '300px',
     background: 'white',
     borderRadius: '12px',
     overflowY: 'auto',
@@ -174,7 +174,7 @@ const Room = () => {
 
       <mesh position={[0.5, 1, -5.5]} rotation={[0, 0, 0]}>
         <boxGeometry args={[0.1, 20, 0.1]} />
-        <meshStandardMaterial color="grey" opacity={0.17} transparent />
+        <meshStandardMaterial color="grey" opacity={0.1} transparent />
       </mesh>
 
       <DigitalClock position={[-4.1, 5.9, 4.5]} rotation={[0, Math.PI / 4, 0.05]} color="black" />
