@@ -14,7 +14,7 @@ import AboutMeContent from './AboutMeContent';
 import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
 import RightWallWords from './RightWallWords';
-import LeftWallInfo from './LeftWallInfo';
+
 
 
 const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setPressed }) => {
@@ -217,8 +217,9 @@ const Room = () => {
       </Suspense>
       
   <Html
-  position={[3.4, 1.07, -2]}
-  rotation={[0, -Math.PI / -0.57, 0.057]}
+  position={isMobile ? [0, -7, -2.2] : [3.1, 1.75, 1]}
+  rotation={[0.07, Math.PI / 0.564, 0.01 ]}
+  scale={isMobile ? 0.7 : 0.73}
   transform
   occlude
   style={{
