@@ -217,9 +217,8 @@ const Room = () => {
       </Suspense>
       
   <Html
-  position={isMobile ? [0, -7, -2.2] : [3.1, 1.75, 1]}
-  rotation={[0.07, Math.PI / 0.564, 0.01 ]}
-  scale={isMobile ? 0.7 : 0.73}
+  position={[3.4, 1.07, -2]}
+  rotation={[0, -Math.PI / -0.57, 0.057]}
   transform
   occlude
   style={{
