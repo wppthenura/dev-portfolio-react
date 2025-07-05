@@ -3,11 +3,11 @@ import React from "react";
 const SkillsContent = () => (
   <div
     style={{
-      fontFamily: "sans-serif", // default font
+      fontFamily: "sans-serif", 
       color: "black",
       padding: "20px",
       borderRadius: "12px",
-      maxWidth: "800px",
+      maxWidth: "400px",
       margin: "0 auto",
       lineHeight: "1.6",
     }}
@@ -21,7 +21,6 @@ const SkillsContent = () => (
       `}
     </style>
 
-    {/* Custom font only for the title */}
     <h2
       style={{
         fontSize: "1.8rem",
@@ -47,8 +46,7 @@ const SkillsContent = () => (
 
       <br />
       <br />
-
-      {/* Custom font for subheading */}
+      
       <span
         style={{
           fontFamily: "BitcountGridDouble, sans-serif",

@@ -67,12 +67,13 @@ const TVOverlay = ({ contentType, onClose }) => {
     <group ref={groupRef} position={[0, 10, 10]}>
 
       <Html
-  position={[0, 0, 0.11]}
+  position={[0, 0, -1.3]} // slightly in front of TV
   transform
   occlude
   style={{
-    width: '500px',
-    height: '300px',
+    zIndex: 20, // ensure it's on top
+    width: '700px',
+    height: '400px',
     background: 'white',
     borderRadius: '12px',
     overflowY: 'auto',
@@ -258,8 +259,8 @@ const Room = () => {
 </a>
 </Html>
 <Html
-  position={[4.3, 4.77, 0]}
-  scale={0.47}
+  position={[4.75, 5.1, -1.1]}
+  scale={0.5}
   rotation={[0, -Math.PI / -0.55, -0.05]}
   transform
   occlude
@@ -284,6 +285,7 @@ const Room = () => {
     <li>Press the wooden logs to see information.</li>
     <li>Drag my Chair, have fun.</li>
     <li>Scroll on the plant to see the tiny ant.</li>
+    <li><b>Connect with me</b> from the <i>socials</i> on the below glass piece</li>
   </ul>
 </Html>
     </>

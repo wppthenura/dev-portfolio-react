@@ -7,7 +7,7 @@ const AboutMeContent = () => (
       color: "black",
       padding: "20px",
       borderRadius: "12px",
-      maxWidth: "800px",
+      maxWidth: "700px",
       margin: "0 auto",
     }}
   >
@@ -47,8 +47,6 @@ const AboutMeContent = () => (
         About Me
       </h2>
     </div>
-
-    {/* Paragraphs */}
     <p style={{ marginBottom: "12px" }}>
       Hi, I'm W.P.Pulindu Thenura, a self driven Software Engineer currently in my final year of pursuing a BSc (Hons) in Software Engineering at Plymouth University, UK. I believe in chasing bold ideas, working hard under pressure, and building innovative solutions that can make a real impact.
     </p>

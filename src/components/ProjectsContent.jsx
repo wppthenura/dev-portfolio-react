@@ -7,7 +7,7 @@ const ProjectsContent = () => (
       color: "black",
       padding: "5px",
       borderRadius: "12px",
-      maxWidth: "800px",
+      maxWidth: "700px",
       margin: "0 auto",
       lineHeight: "1.6",
     }}
@@ -53,8 +53,6 @@ const ProjectsContent = () => (
   >
     View on GitHub
   </a>
-
-  {/* Image Grid */}
   <div
     style={{
       marginTop: "10px",
@@ -80,7 +78,7 @@ const ProjectsContent = () => (
         src={`/images/${img}`}
         alt={`OstoCare screenshot ${index + 1}`}
         style={{
-          width: "calc(33.33% - 10px)",
+          width: "calc(30.33% - 10px)",
           borderRadius: "8px",
           objectFit: "cover",
         }}
