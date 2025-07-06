@@ -93,9 +93,19 @@ const Palm = ({ isMobile }) => {
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
     >
-      <group ref={modelRef}>
-        <primitive object={palm.scene} />
-      </group>
+      <group
+  ref={modelRef}
+  onPointerOver={() => {
+    setHovered(true);
+    document.body.style.cursor = 'pointer';
+  }}
+  onPointerOut={() => {
+    setHovered(false);
+    document.body.style.cursor = 'default';
+  }}
+>
+  <primitive object={palm.scene} />
+</group>
     </group>
   );
 };

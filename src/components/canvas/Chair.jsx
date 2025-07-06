@@ -8,12 +8,10 @@ const Chair = ({ isMobile }) => {
   const groupRef = useRef();
   const [hovered, setHovered] = useState(false);
 
-  // === [1] DEFAULT ORBIT ROTATION AROUND ROOM ===
   const defaultOrbitRotation = 0;
   const orbitRotation = useRef(defaultOrbitRotation);
   const currentOrbit = useRef(defaultOrbitRotation);
 
-  // === [2] DEFAULT CHAIR DIRECTION (which way it's facing) ===
   const defaultChairFacing = 9.2;
 
   const minOrbit = -Math.PI / 1000;
@@ -56,9 +54,16 @@ const Chair = ({ isMobile }) => {
         scale={isMobile ? 0.7 : 0.12}
         position={isMobile ? [0, -7, -2.2] : [0, 0, 0]}
         rotation={[0, defaultChairFacing, 0.05]}
+        onPointerOver={() => {
+    setHovered(true);
+    document.body.style.cursor = 'pointer';
+  }}
+  onPointerOut={() => {
+    setHovered(false);
+    document.body.style.cursor = 'default';
+  }}
       />
 
-      {/* Scroll instruction text */}
       {hovered && (
         <>
           <Text

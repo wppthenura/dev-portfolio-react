@@ -28,7 +28,7 @@ const ProjectsContent = () => (
         fontFamily: "BitcountGridDouble, sans-serif",
       }}
     >
-      Projects
+      My Work
     </h2>
 
     <p style={{ marginBottom: "20px" }}>

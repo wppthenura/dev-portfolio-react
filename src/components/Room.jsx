@@ -36,7 +36,13 @@ const WoodenTileButton = ({ woodTexture, position, label, onClick, pressed, setP
   };
 
   return (
-    <group ref={buttonRef} position={position} onClick={handleClick}>
+    <group 
+    ref={buttonRef} 
+    position={position} 
+    onClick={handleClick}
+    onPointerOver={() => (document.body.style.cursor = 'pointer')}
+    onPointerOut={() => (document.body.style.cursor = 'default')}
+    >
       <mesh>
         <boxGeometry args={[2, 0.35, 1]} />
         <meshStandardMaterial map={woodTexture} />
@@ -67,11 +73,11 @@ const TVOverlay = ({ contentType, onClose }) => {
     <group ref={groupRef} position={[0, 10, 10]}>
 
       <Html
-  position={[0, 0, -1.3]} // slightly in front of TV
+  position={[0, 0, -1.3]} 
   transform
   occlude
   style={{
-    zIndex: 20, // ensure it's on top
+    zIndex: 20,
     width: '700px',
     height: '400px',
     background: 'white',
