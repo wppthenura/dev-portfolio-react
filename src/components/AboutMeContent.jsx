@@ -6,7 +6,6 @@ const AboutMeContent = () => (
       fontFamily: "sans-serif",
       color: "black",
       padding: "20px",
-      borderRadius: "12px",
       maxWidth: "700px",
       margin: "0 auto",
     }}
@@ -39,8 +38,7 @@ const AboutMeContent = () => (
       />
       <h2
         style={{
-          fontSize: "1.8rem",
-          margin: 0,
+          fontSize: "70px",
           fontFamily: "BitcountGridDouble, sans-serif",
         }}
       >

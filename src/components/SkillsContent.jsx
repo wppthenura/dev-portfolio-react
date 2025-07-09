@@ -23,7 +23,7 @@ const SkillsContent = () => (
 
     <h2
       style={{
-        fontSize: "1.8rem",
+        fontSize: "70px",
         marginBottom: "16px",
         fontFamily: "BitcountGridDouble, sans-serif",
       }}

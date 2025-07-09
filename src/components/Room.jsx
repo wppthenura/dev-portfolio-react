@@ -70,15 +70,17 @@ const TVOverlay = ({ contentType, onClose }) => {
   });
 
   return (
-    <group ref={groupRef} position={[0, 10, 10]}>
+    <group ref={groupRef} position={[0, 0, 10]}>
 
       <Html
-  position={[0, 0, -1.3]} 
+  position={[0.5, 0.9, 0]}
+  rotation={[-0.07, Math.PI / 22, 0.01]}
+  scale={1} 
   transform
   occlude
   style={{
     zIndex: 20,
-    width: '700px',
+    width: '800px',
     height: '400px',
     background: 'white',
     borderRadius: '12px',
