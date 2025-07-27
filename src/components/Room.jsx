@@ -75,7 +75,7 @@ const TVOverlay = ({ contentType, onClose }) => {
       <Html
   position={[0.5, 0.9, 0]}
   rotation={[-0.07, Math.PI / 22, 0.01]}
-  scale={1} 
+  scale={0.95} 
   transform
   occlude
   style={{
