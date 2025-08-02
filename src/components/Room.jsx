@@ -15,6 +15,7 @@ import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
 import RightWallWords from './RightWallWords';
 import Calendar3D from './canvas/Calendar3D';
+import Calendar from "./canvas/CalendarUI";
 
 
 
