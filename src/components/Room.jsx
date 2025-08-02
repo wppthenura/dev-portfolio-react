@@ -14,6 +14,7 @@ import AboutMeContent from './AboutMeContent';
 import SkillsContent from './SkillsContent';
 import ProjectsContent from './ProjectsContent';
 import RightWallWords from './RightWallWords';
+import Calendar3D from './canvas/Calendar3D';
 
 
 
@@ -223,6 +224,7 @@ const Room = () => {
         <Palm isMobile={isMobile} />
         <Cabinet isMobile={isMobile} />
         <Techballs isMobile={isMobile} />
+        <Calendar3D isMobile={isMobile} />
       </Suspense>
       
   <Html

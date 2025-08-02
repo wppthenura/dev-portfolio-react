@@ -25,7 +25,7 @@ const DigitalClock = ({
   return (
     <group position={position} rotation={rotation}>
       {/* 3D Frame (centered) */}
-      <mesh position={[0, 0, -0.075]}>
+      <mesh position={[0, 0.2, -0.075]}>
         <boxGeometry args={[0.7, 0.25, 0.15]} />
         <meshStandardMaterial
           color="white"
@@ -35,7 +35,7 @@ const DigitalClock = ({
       </mesh>
 
       {/* Glass Front aligned with frame */}
-      <mesh position={[0, 0, 0.01]}>
+      <mesh position={[0, 0.2, 0.01]}>
         <planeGeometry args={[0.68, 0.23]} />
         <meshStandardMaterial
           color="#ffffff"
@@ -52,7 +52,7 @@ const DigitalClock = ({
         color={color}
         anchorX="center"
         anchorY="middle"
-        position={[0, 0, 0.02]}
+        position={[0, 0.2, 0.02]}
         outlineWidth={0.004}
         outlineColor="black"
       >
