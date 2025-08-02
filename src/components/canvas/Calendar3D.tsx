@@ -9,11 +9,12 @@ const Calendar3D = () => {
         <planeGeometry args={[2.2, 2.6]} />
         <meshStandardMaterial color="#ffffff" />
       </mesh>
-      <Html transform occlude>
-        <div style={{ width: '512px', height: '600px' }}>
-          <Calendar />
-        </div>
+      <Html transform>
+       <div style={{ width: '510px', height: '600px' }}>
+        <Calendar />
+       </div>
       </Html>
+
     </group>
   );
 };
