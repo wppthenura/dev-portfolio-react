@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './calendar.css'; // You’ll create custom CSS
+import './calendar.css'; 
 
 const Calendar = () => {
   const [date, setDate] = useState(new Date());
@@ -10,7 +10,7 @@ const Calendar = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setDate(new Date());
-    }, 60 * 1000); // Updates every minute
+    }, 60 * 1000); 
     return () => clearInterval(interval);
   }, []);
 
@@ -31,15 +31,8 @@ const Calendar = () => {
     }
   };
 
-  const vehicleImages = [
-    'car1.jpg', 'car2.jpg', 'car3.jpg', 'car4.jpg',
-    'car5.jpg', 'car6.jpg', 'car7.jpg', 'car8.jpg',
-    'car9.jpg', 'car10.jpg', 'car11.jpg', 'car12.jpg',
-  ];
-  const backgroundImg = `/calendar/${vehicleImages[date.getMonth()]}`;
-
   return (
-    <div className="calendar-container" style={{ backgroundImage: `url(${backgroundImg})` }}>
+    <div className="calendar-container">
       <div className="calendar-header">
         {date.toLocaleString('default', { month: 'long' })} {date.getFullYear()}
       </div>
