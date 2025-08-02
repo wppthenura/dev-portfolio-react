@@ -4,7 +4,7 @@ import Calendar from './CalendarUI';
 
 const Calendar3D = () => {
   return (
-    <group position={[-51.5, 13, -40]} rotation={[0, -Math.PI / 0.55, 0.005]}>
+    <group position={[-51.5, 16, -40]} rotation={[0, -Math.PI / 0.55, 0.005]} scale={[1, 1, 1]}>
       <mesh>
         <planeGeometry args={[2.2, 2.6]} />
         <meshStandardMaterial color="#ffffff" />

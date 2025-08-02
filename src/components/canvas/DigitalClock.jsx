@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Text } from "@react-three/drei";
+import { Text, RoundedBox } from "@react-three/drei";
 
 const DigitalClock = ({
   position = [0, 5, 0],
@@ -24,18 +24,18 @@ const DigitalClock = ({
 
   return (
     <group position={position} rotation={rotation}>
-      {/* 3D Frame (centered) */}
-      <mesh position={[0, 0.2, -0.075]}>
-        <boxGeometry args={[0.7, 0.25, 0.15]} />
-        <meshStandardMaterial
-          color="white"
-          metalness={0.3}
-          roughness={0.4}
-        />
-      </mesh>
+      <RoundedBox
+        args={[0.4, 0.13, 0.05]}
+        radius={0.03}
+        smoothness={4}
+        position={[0.66, 0.217, -0.025]}
+        rotation={[0, 0, 0.009]}
+      >
+        <meshStandardMaterial color="white" metalness={0.3} roughness={0.4} />
+      </RoundedBox>
 
-      {/* Glass Front aligned with frame */}
-      <mesh position={[0, 0.2, 0.01]}>
+      {/* Glass Front */}
+      <mesh position={[0.66, 0.217, -0.025]}>
         <planeGeometry args={[0.68, 0.23]} />
         <meshStandardMaterial
           color="#ffffff"
@@ -46,14 +46,14 @@ const DigitalClock = ({
         />
       </mesh>
 
-      {/* Clock Text (centered inside) */}
+      {/* Time Text */}
       <Text
-        fontSize={0.14}
+        fontSize={0.08}
         color={color}
         anchorX="center"
         anchorY="middle"
-        position={[0, 0.2, 0.02]}
-        outlineWidth={0.004}
+        position={[0.66, 0.22, 0.02]}
+        outlineWidth={0.001}
         outlineColor="black"
       >
         {time}
